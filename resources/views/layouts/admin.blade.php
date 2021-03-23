@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="{{ asset('back/assets/css/style.css') }}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('back/assets/images/favicon.png') }}" />
+     <!-- toastr -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
   </head>
   <body>
     <div class="container-scroller">
@@ -84,7 +86,7 @@
             <span class="nav-link">Navigation</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{ route('dashboard') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
@@ -96,14 +98,13 @@
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
               </span>
-              <span class="menu-title">Basic UI Elements</span>
+              <span class="menu-title">Categories</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('admin.categories') }}">Category</a></li>
+                <li class="nav-item"> <a class="nav-link" href="">Sub Category</a></li>
               </ul>
             </div>
           </li>
@@ -370,13 +371,6 @@
 
             @yield('content')
       <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2019 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
-              <span class="text-muted float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
-            </div>
-          </footer>
           <!-- partial -->
         </div>
         <!-- main-panel ends -->
@@ -404,5 +398,31 @@
     <!-- Custom js for this page -->
     <script src="{{ asset('back/assets/js/dashboard.js') }}"></script>
     <!-- End custom js for this page -->
+
+      <!-- toastr -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+   <!--  toaster -->
+ <!--  toaster -->
+ <script>
+    @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type') }}"
+    switch (type) {
+        case 'info':
+            toastr.info("{{ Session::get('message') }}")
+            break;
+            case 'success':
+            toastr.success("{{ Session::get('message') }}")
+            break;
+            case 'error':
+            toastr.error("{{ Session::get('message') }}")
+            break;
+            case 'warning':
+            toastr.info("{{ Session::get('message') }}")
+            break;
+        default:
+            break;
+    }
+    @endif
+</script>
   </body>
 </html>

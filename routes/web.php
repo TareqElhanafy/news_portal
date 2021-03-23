@@ -19,5 +19,19 @@ Route::get('/', 'HomeController@index')->name('frontPage');
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function () {
-    Route::get('/', 'DashboardController@index');
+    Route::get('/', 'DashboardController@index')->name('dashboard');
+
+    /**
+     *
+     * Categories Routes
+     */
+    Route::group(['prefix' => 'categories'], function () {
+        Route::get('/', 'CategoryController@index')->name('admin.categories');
+        Route::get('/create', 'CategoryController@create')->name('admin.categories.create');
+        Route::post('/store', 'CategoryController@store')->name('admin.categories.store');
+        Route::get('/edit/{id}/{name_en}', 'CategoryController@edit')->name('admin.categories.edit');
+        Route::post('/update/{id}/{name_en}', 'CategoryController@update')->name('admin.categories.update');
+        Route::get('/delete/{id}/{name_en}', 'CategoryController@destroy')->name('admin.categories.delete');
+
+    });
 });
