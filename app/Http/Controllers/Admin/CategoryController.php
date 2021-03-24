@@ -35,7 +35,7 @@ class CategoryController extends Controller
             ]);
         } catch (\Exception $ex) {
             return redirect()->route('admin.categories')->with([
-                'alert-type' => 'danger',
+                'alert-type' => 'error',
                 'message' => 'sorry something went wrong'
             ]);
         }
@@ -47,14 +47,14 @@ class CategoryController extends Controller
             $category = Category::find($id);
             if (!$category) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'danger',
+                    'alertt-type' => 'error',
                     'message' => "This product doesn't exist"
                 ]);
             }
             return view('admin.category.edit', compact('category'));
         } catch (\Exception $ex) {
             return redirect()->route('admin.categories')->with([
-                'alert-type' => 'danger',
+                'alert-type' => 'error',
                 'message' => 'sorry something went wrong'
             ]);
         }
@@ -66,7 +66,7 @@ class CategoryController extends Controller
             $category = Category::find($id);
             if (!$category) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'danger',
+                    'alertt-type' => 'error',
                     'message' => "This product doesn't exist"
                 ]);
             }
@@ -80,7 +80,7 @@ class CategoryController extends Controller
             ]);
         } catch (\Exception $ex) {
             return redirect()->route('admin.categories')->with([
-                'alert-type' => 'danger',
+                'alert-type' => 'error',
                 'message' => 'sorry something went wrong'
             ]);
         }
@@ -92,7 +92,7 @@ class CategoryController extends Controller
             $category = Category::find($id);
             if (!$category) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'danger',
+                    'alert-type' => 'error',
                     'message' => "This product doesn't exist"
                 ]);
             }
@@ -103,7 +103,7 @@ class CategoryController extends Controller
             ]);
         } catch (\Exception $ex) {
             return redirect()->route('admin.categories')->with([
-                'alert-type' => 'danger',
+                'alert-type' => 'error',
                 'message' => 'sorry something went wrong'
             ]);
         }

@@ -37,7 +37,7 @@ class SubCategoryController extends Controller
             ]);
         } catch (\Exception $ex) {
             return redirect()->route('admin.subcategories')->with([
-                'alert-type' => 'danger',
+                'alert-type' => 'error',
                 'message' => 'sorry something went wrong'
             ]);
         }
@@ -49,7 +49,7 @@ class SubCategoryController extends Controller
             $subcategory = SubCategory::find($id);
             if (!$subcategory) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'danger',
+                    'alertt-type' => 'error',
                     'message' => "This product doesn't exist"
                 ]);
             }
@@ -57,7 +57,7 @@ class SubCategoryController extends Controller
             return view('admin.subcategory.edit', compact('subcategory', 'categories'));
         } catch (\Exception $ex) {
             return redirect()->route('admin.subcategories')->with([
-                'alert-type' => 'danger',
+                'alert-type' => 'error',
                 'message' => 'sorry something went wrong'
             ]);
         }
@@ -69,7 +69,7 @@ class SubCategoryController extends Controller
             $subcategory = SubCategory::find($id);
             if (!$subcategory) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'danger',
+                    'alertt-type' => 'error',
                     'message' => "This product doesn't exist"
                 ]);
             }
@@ -84,7 +84,7 @@ class SubCategoryController extends Controller
             ]);
         } catch (\Exception $ex) {
             return redirect()->route('admin.subcategories')->with([
-                'alert-type' => 'danger',
+                'alert-type' => 'error',
                 'message' => 'sorry something went wrong'
             ]);
         }
@@ -96,7 +96,7 @@ class SubCategoryController extends Controller
             $subcategory = SubCategory::find($id);
             if (!$subcategory) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'danger',
+                    'alertt-type' => 'error',
                     'message' => "This product doesn't exist"
                 ]);
             }
@@ -107,7 +107,7 @@ class SubCategoryController extends Controller
             ]);
         } catch (\Exception $ex) {
             return redirect()->route('admin.subcategories')->with([
-                'alert-type' => 'danger',
+                'alert-type' => 'error',
                 'message' => 'sorry something went wrong'
             ]);
         }

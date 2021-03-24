@@ -30,7 +30,7 @@ class AddPostRequest extends FormRequest
             'subdistrict_id' => 'nullable|exists:sub_districts,id',
             'title_en' => 'required|string|max:255',
             'title_ar' => 'required|string|max:255',
-            'image' => 'required|mimes:png,jpg',
+            'image' => 'required_without:id|mimes:png,jpg',
             'details_en' => 'required|string',
             'details_ar' => 'required|string',
             'tags_en' => 'nullable|string',

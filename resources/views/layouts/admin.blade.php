@@ -460,7 +460,7 @@
     }
     @endif
 </script>
-          < <!-- sweet alert -->
+           <!-- sweet alert -->
           <script>
               $(document).on("click", "#delete",function(e){
                 e.preventDefault();

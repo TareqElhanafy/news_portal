@@ -4,24 +4,24 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Add New Post</h4>
-        <form class="forms-sample" action="{{ route('admin.posts.store') }}" method="POST" enctype="multipart/form-data">
+        <form class="forms-sample" action="{{ route('admin.posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="exampleInputName1">Title in English</label>
-                        <input type="text" class="form-control" name="title_en" id="exampleInputName1" placeholder="title in en">
+                        <input type="text" class="form-control" name="title_en" value="{{ $post->title_en }}" id="exampleInputName1" placeholder="title in en">
                         @error('title_en')
                         <div class="alert alert-danger">
                             {{ $message }}
                         </div>
                          @enderror
-                    </div>
+                      </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="exampleInputName1">Title in Arabic</label>
-                        <input type="text" class="form-control" name="title_ar" id="exampleInputName1" placeholder="title in ar">
+                        <input type="text" class="form-control" name="title_ar" value="{{ $post->title_ar }}" id="exampleInputName1" placeholder="title in ar">
                         @error('title_ar')
                         <div class="alert alert-danger">
                             {{ $message }}
@@ -40,7 +40,9 @@
                           <select name="category_id" class="form-control" id="exampleFormControlSelect2">
                               <option disabled selected>--Select Category</option>
                               @foreach ($categories as $category)
-                              <option value="{{ $category->id }}">{{ $category->name_en }}</option>
+                              <option value="{{ $category->id }}" @if ($category->id == $post->category->id)
+                                     selected
+                              @endif>{{ $category->name_en }}</option>
                               @endforeach
                           </select>
                           @error('category_id')
@@ -54,6 +56,7 @@
                     <div class="form-group">
                         <label for="exampleInputName1">Choose Sub-Category</label>
                           <select name="subcategory_id" class="form-control" id="exampleFormControlSelect2">
+                              <option value="{{ $post->subcategory->id }}">{{ $post->subcategory->name_en }}</option>
                           </select>
                           @error('subcategory_id')
                           <div class="alert alert-danger">
@@ -73,7 +76,9 @@
                           <select name="district_id" class="form-control" id="exampleFormControlSelect2">
                               <option disabled selected>--Select District</option>
                               @foreach ($districts as $district)
-                              <option value="{{ $district->id }}">{{ $district->name_en }}</option>
+                              <option value="{{ $district->id }}" @if ($district->id == $post->district->id)
+                                selected
+                         @endif>{{ $district->name_en }}</option>
                               @endforeach
                           </select>
                           @error('district_id')
@@ -87,6 +92,7 @@
                     <div class="form-group">
                         <label for="exampleInputName1">Choose Sub-District</label>
                           <select name="subdistrict_id" class="form-control" id="exampleFormControlSelect2">
+                            <option value="{{ $post->subdistrict->id }}">{{ $post->subdistrict->name_en }}</option>
                           </select>
                           @error('subdistrict_id')
                           <div class="alert alert-danger">
@@ -99,9 +105,10 @@
           <div class="form-group">
             <label>image</label>
             <br>
-            <input type="file" name="image" class="form-control" onchange="readURL(this);">
+            <input type="file"  name="image" class="form-control" onchange="readURL(this);">
             <br>
-            <img src="" id="image"  alt="">
+            <img src="{{ asset('storage/'.$post->image) }}" id="image" style="border-radius: 100%; height: 80px; width:80px;"  alt="">
+            <input type="hidden" name="id" value="{{ $post->id }}" id="{{ $post->id }}">
             @error('image')
             <div class="alert alert-danger">
                 {{ $message }}
@@ -110,7 +117,7 @@
           </div>
           <div class="form-group">
             <label for="exampleTextarea1">Details in English</label>
-            <textarea class="form-control" name="details_en" id="editor1" rows="4"></textarea>
+            <textarea class="form-control" name="details_en" id="editor1" rows="4">{{ $post->details_en }}</textarea>
             @error('details_en')
             <div class="alert alert-danger">
                 {{ $message }}
@@ -119,7 +126,7 @@
           </div>
           <div class="form-group">
             <label for="exampleTextarea1">Details in Arabic</label>
-            <textarea class="form-control" name="details_ar" id="editor2" rows="4"></textarea>
+            <textarea class="form-control" name="details_ar" id="editor2" rows="4">{{ $post->details_ar }}</textarea>
             @error('details_ar')
             <div class="alert alert-danger">
                 {{ $message }}
@@ -130,19 +137,27 @@
           <div class="row">
               <div class="col-3">
                   <label for="">headline</label>
-                  <input type="checkbox" name="headline" id="" value="1">
+                  <input type="checkbox" name="headline" id="" value="1" @if ($post->headline == 1)
+                      checked
+                  @endif>
               </div>
               <div class="col-3">
                 <label for="">first section</label>
-                <input type="checkbox" name="first_section" id="" value="1">
+                <input type="checkbox" name="first_section" id="" value="1" @if ($post->first_section == 1)
+                checked
+            @endif>
             </div>
             <div class="col-3">
                 <label for="">first section thumbnail</label>
-                <input type="checkbox" name="first_section_thumbnail" id="" value="1">
+                <input type="checkbox" name="first_section_thumbnail" id="" value="1" @if ($post->first_section_thumbnail == 1)
+                checked
+            @endif>
             </div>
             <div class="col-3">
                 <label for="">bigthumbnail</label>
-                <input type="checkbox" name="bigthumbnail" id="" value="1">
+                <input type="checkbox" name="bigthumbnail" id="" value="1" @if ($post->bigthumbnail == 1)
+                checked
+            @endif>
             </div>
           </div>
           <br><br>
@@ -206,20 +221,20 @@
               });
         });
     </script>
-              <!--Previewing image -->
-              <script type="text/javascript">
-                function readURL(input){
-                  if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                      $('#image')
-                      .attr('src', e.target.result)
-                      .width(80)
-                      .height(80);
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                  }
-                }
-              </script>
+          <!--Previewing image -->
+    <script type="text/javascript">
+        function readURL(input){
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+              $('#image')
+              .attr('src', e.target.result)
+              .width(80)
+              .height(80);
+            };
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+      </script>
   @endsection
 @endsection

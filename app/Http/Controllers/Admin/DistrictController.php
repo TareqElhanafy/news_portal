@@ -35,7 +35,7 @@ class DistrictController extends Controller
             ]);
         } catch (\Exception $ex) {
             return redirect()->route('admin.districts')->with([
-                'alert-type' => 'danger',
+                'alert-type' => 'error',
                 'message' => 'sorry something went wrong'
             ]);
         }
@@ -47,14 +47,14 @@ class DistrictController extends Controller
             $district = District::find($id);
             if (!$district) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'danger',
+                    'alertt-type' => 'error',
                     'message' => "This district doesn't exist"
                 ]);
             }
             return view('admin.district.edit', compact('district'));
         } catch (\Exception $ex) {
             return redirect()->route('admin.districts')->with([
-                'alert-type' => 'danger',
+                'alert-type' => 'error',
                 'message' => 'sorry something went wrong'
             ]);
         }
@@ -66,7 +66,7 @@ class DistrictController extends Controller
             $district = District::find($id);
             if (!$district) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'danger',
+                    'alertt-type' => 'error',
                     'message' => "This district doesn't exist"
                 ]);
             }
@@ -80,7 +80,7 @@ class DistrictController extends Controller
             ]);
         } catch (\Exception $ex) {
             return redirect()->route('admin.districts')->with([
-                'alert-type' => 'danger',
+                'alert-type' => 'error',
                 'message' => 'sorry something went wrong'
             ]);
         }
@@ -92,7 +92,7 @@ class DistrictController extends Controller
             $district = District::find($id);
             if (!$district) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'danger',
+                    'alertt-type' => 'error',
                     'message' => "This district doesn't exist"
                 ]);
             }
@@ -103,7 +103,7 @@ class DistrictController extends Controller
             ]);
         } catch (\Exception $ex) {
             return redirect()->route('admin.districts')->with([
-                'alert-type' => 'danger',
+                'alert-type' => 'error',
                 'message' => 'sorry something went wrong'
             ]);
         }

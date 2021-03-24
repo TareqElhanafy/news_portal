@@ -37,7 +37,7 @@ class SubDistrictController extends Controller
             ]);
         } catch (\Exception $ex) {
             return redirect()->route('admin.subdistricts')->with([
-                'alert-type' => 'danger',
+                'alert-type' => 'error',
                 'message' => 'sorry something went wrong'
             ]);
         }
@@ -49,7 +49,7 @@ class SubDistrictController extends Controller
             $subdistrict = SubDistrict::find($id);
             if (!$subdistrict) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'danger',
+                    'alertt-type' => 'error',
                     'message' => "This sub district doesn't exist"
                 ]);
             }
@@ -57,7 +57,7 @@ class SubDistrictController extends Controller
             return view('admin.subdistrict.edit', compact('subdistrict', 'districts'));
         } catch (\Exception $ex) {
             return redirect()->route('admin.subdistricts')->with([
-                'alert-type' => 'danger',
+                'alert-type' => 'error',
                 'message' => 'sorry something went wrong'
             ]);
         }
@@ -69,7 +69,7 @@ class SubDistrictController extends Controller
             $subdistrict = SubDistrict::find($id);
             if (!$subdistrict) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'danger',
+                    'alertt-type' => 'error',
                     'message' => "This sub district doesn't exist"
                 ]);
             }
@@ -84,7 +84,7 @@ class SubDistrictController extends Controller
             ]);
         } catch (\Exception $ex) {
             return redirect()->route('admin.subdistricts')->with([
-                'alert-type' => 'danger',
+                'alert-type' => 'error',
                 'message' => 'sorry something went wrong'
             ]);
         }
@@ -96,7 +96,7 @@ class SubDistrictController extends Controller
             $subdistrict = SubDistrict::find($id);
             if (!$subdistrict) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'danger',
+                    'alertt-type' => 'error',
                     'message' => "This sub district doesn't exist"
                 ]);
             }
@@ -107,7 +107,7 @@ class SubDistrictController extends Controller
             ]);
         } catch (\Exception $ex) {
             return redirect()->route('admin.subdistricts')->with([
-                'alert-type' => 'danger',
+                'alert-type' => 'error',
                 'message' => 'sorry something went wrong'
             ]);
         }
