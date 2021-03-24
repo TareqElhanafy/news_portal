@@ -123,7 +123,7 @@
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.districts') }}">District</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('admin.districts') }}">Sub District</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('admin.subdistricts') }}">Sub District</a></li>
               </ul>
             </div>
           </li>

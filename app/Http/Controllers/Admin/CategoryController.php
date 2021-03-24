@@ -75,7 +75,7 @@ class CategoryController extends Controller
             ]);
             return redirect()->route('admin.categories')->with([
                 'alert-type' => 'success',
-                'message' => 'New Category updated successfully'
+                'message' => 'Category updated successfully'
             ]);
         } catch (\Exception $ex) {
             return redirect()->route('admin.categories')->with([
@@ -98,7 +98,7 @@ class CategoryController extends Controller
             $category->delete();
             return redirect()->route('admin.categories')->with([
                 'alert-type' => 'success',
-                'message' => 'New Category deleted successfully'
+                'message' => 'Category deleted successfully'
             ]);
         } catch (\Exception $ex) {
             return redirect()->route('admin.categories')->with([

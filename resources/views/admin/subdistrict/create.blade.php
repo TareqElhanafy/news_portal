@@ -3,8 +3,8 @@
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Add New Sub-Category</h4>
-        <form class="forms-sample" action="{{ route('admin.subcategories.store') }}" method="POST">
+        <h4 class="card-title">Add New Sub-District</h4>
+        <form class="forms-sample" action="{{ route('admin.subdistricts.store') }}" method="POST">
             @csrf
           <div class="form-group">
             <label for="exampleInputName1">Name in English</label>
@@ -25,21 +25,21 @@
              @enderror
           </div>
          <div class="form-group">
-            <label for="exampleInputName1">Choose Category</label>
-              <select name="category_id" class="form-control" id="exampleFormControlSelect2">
-                  <option disabled selected>--Select Category</option>
-                  @foreach ($categories as $category)
-                  <option value="{{ $category->id }}">{{ $category->name_en }}</option>
+            <label for="exampleInputName1">Choose District</label>
+              <select name="district_id" class="form-control" id="exampleFormControlSelect2">
+                  <option disabled selected>--Select District</option>
+                  @foreach ($districts as $district)
+                  <option value="{{ $district->id }}">{{ $district->name_en }}</option>
                   @endforeach
               </select>
-              @error('category_id')
+              @error('district_id')
               <div class="alert alert-danger">
                   {{ $message }}
               </div>
                @enderror
          </div>
           <button type="submit" class="btn btn-primary mr-2">Submit</button>
-          <a href="{{ route('admin.subcategories') }}" class="btn btn-dark">Cancel</a>
+          <a href="{{ route('admin.subdistricts') }}" class="btn btn-dark">Cancel</a>
         </form>
       </div>
     </div>
