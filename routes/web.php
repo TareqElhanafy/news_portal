@@ -34,7 +34,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::get('/delete/{id}/{name_en}', 'CategoryController@destroy')->name('admin.categories.delete');
     });
 
-        /**
+    /**
      *
      * SubCategories Routes
      */
@@ -47,5 +47,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::get('/delete/{id}/{name_en}', 'SubCategoryController@destroy')->name('admin.subcategories.delete');
     });
 
+    /**
+     *
+     * Districts Routes
+     */
+    Route::group(['prefix' => 'districts'], function () {
+        Route::get('/', 'DistrictController@index')->name('admin.districts');
+        Route::get('/create', 'DistrictController@create')->name('admin.districts.create');
+        Route::post('/store', 'DistrictController@store')->name('admin.districts.store');
+        Route::get('/edit/{id}/{name_en}', 'DistrictController@edit')->name('admin.districts.edit');
+        Route::post('/update/{id}/{name_en}', 'DistrictController@update')->name('admin.districts.update');
+        Route::get('/delete/{id}/{name_en}', 'DistrictController@destroy')->name('admin.districts.delete');
+    });
 
 });
