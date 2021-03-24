@@ -41,7 +41,11 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
+                  <h5 class="mb-0 font-weight-normal">
+                      @auth
+                      {{ Auth::user()->name }}
+                      @endauth
+                    </h5>
                   <span>Gold Member</span>
                 </div>
               </div>
@@ -104,7 +108,7 @@
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.categories') }}">Category</a></li>
-                <li class="nav-item"> <a class="nav-link" href="">Sub Category</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('admin.subcategories') }}">Sub Category</a></li>
               </ul>
             </div>
           </li>
@@ -173,7 +177,7 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row">
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('back/assets/images/logo-mini.svg') }}" alt="logo" /></a>
           </div>
           <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -398,10 +402,11 @@
     <!-- Custom js for this page -->
     <script src="{{ asset('back/assets/js/dashboard.js') }}"></script>
     <!-- End custom js for this page -->
-
+          <!-- sweet alert -->
+   <!-- sweet alert -->
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
       <!-- toastr -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-   <!--  toaster -->
  <!--  toaster -->
  <script>
     @if(Session::has('message'))
@@ -424,5 +429,26 @@
     }
     @endif
 </script>
+          < <!-- sweet alert -->
+          <script>
+              $(document).on("click", "#delete",function(e){
+                e.preventDefault();
+                var link = $(this).attr("href");
+                swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                   })
+               .then((willDelete) => {
+                if (willDelete) {
+                      window.location.href = link;
+            } else {
+            swal("Safe Data");
+                  }
+            });
+              });
+          </script>
   </body>
 </html>

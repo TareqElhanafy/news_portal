@@ -3,8 +3,8 @@
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Categories table</h4>
-        <a href="{{ route('admin.categories.create') }}" class="btn btn-primary btn-fw" style="float: right;">Add New Category</a>
+        <h4 class="card-title">Sub-Categories table</h4>
+        <a href="{{ route('admin.subcategories.create') }}" class="btn btn-primary btn-fw" style="float: right;">Add New Sub-Category</a>
         </p>
         <div class="table-responsive">
           <table class="table table-bordered">
@@ -13,6 +13,7 @@
                 <th> # </th>
                 <th> Name in English </th>
                 <th> Name in Arabic </th>
+                <th> Category Name </th>
                 <th> Actions </th>
               </tr>
             </thead>
@@ -20,14 +21,15 @@
                 @php
                     $i=1
                 @endphp
-                @foreach ($categories as $category)
+                @foreach ($subcategories as $subcategory)
                 <tr>
                     <td>{{ $i++ }}</td>
-                    <td> {{ $category->name_en }} </td>
-                    <td> {{ $category->name_ar }} </td>
+                    <td> {{ $subcategory->name_en }} </td>
+                    <td> {{ $subcategory->name_ar }} </td>
+                    <td> {{ $subcategory->category->name_en }} </td>
                     <td>
-                        <a href="{{ route('admin.categories.edit', [$category->id,$category->name_en]) }}" class="btn btn-warning btn-fw">Edit</a>
-                        <a id="delete" href="{{ route('admin.categories.delete', [$category->id,$category->name_en]) }}" class="btn btn-danger btn-fw">Delete</a>
+                        <a href="{{ route('admin.subcategories.edit', [$subcategory->id,$subcategory->name_en]) }}" class="btn btn-warning btn-fw">Edit</a>
+                        <a id="delete" href="{{ route('admin.subcategories.delete', [$subcategory->id,$subcategory->name_en]) }}" class="btn btn-danger btn-fw">Delete</a>
                     </td>
                   </tr>
                 @endforeach

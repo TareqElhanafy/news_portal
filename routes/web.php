@@ -32,6 +32,20 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::get('/edit/{id}/{name_en}', 'CategoryController@edit')->name('admin.categories.edit');
         Route::post('/update/{id}/{name_en}', 'CategoryController@update')->name('admin.categories.update');
         Route::get('/delete/{id}/{name_en}', 'CategoryController@destroy')->name('admin.categories.delete');
-
     });
+
+        /**
+     *
+     * SubCategories Routes
+     */
+    Route::group(['prefix' => 'sub-categories'], function () {
+        Route::get('/', 'SubCategoryController@index')->name('admin.subcategories');
+        Route::get('/create', 'SubCategoryController@create')->name('admin.subcategories.create');
+        Route::post('/store', 'SubCategoryController@store')->name('admin.subcategories.store');
+        Route::get('/edit/{id}/{name_en}', 'SubCategoryController@edit')->name('admin.subcategories.edit');
+        Route::post('/update/{id}/{name_en}', 'SubCategoryController@update')->name('admin.subcategories.update');
+        Route::get('/delete/{id}/{name_en}', 'SubCategoryController@destroy')->name('admin.subcategories.delete');
+    });
+
+
 });
