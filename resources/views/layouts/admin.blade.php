@@ -128,17 +128,32 @@
             </div>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="#uii-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#uiii-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
-                <i class="mdi mdi-apple-safari"></i>
+                <i class="mdi mdi-pencil"></i>
               </span>
               <span class="menu-title">Posts</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="uii-basic">
+            <div class="collapse" id="uiii-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.posts.create') }}">Add Post</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.posts') }}">All Posts</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#uiiii-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-icon">
+                <i class="mdi mdi-wrench"></i>
+              </span>
+              <span class="menu-title">Setting</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="uiiii-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="">Social Settings</a></li>
+                <li class="nav-item"> <a class="nav-link" href="">SEO Settings</a></li>
               </ul>
             </div>
           </li>
