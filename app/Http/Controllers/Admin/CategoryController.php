@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddCategoryRequest;
+use App\SubCategory;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -106,5 +107,11 @@ class CategoryController extends Controller
                 'message' => 'sorry something went wrong'
             ]);
         }
+    }
+
+    public function getSubcategories($id)
+    {
+        $subcategories = SubCategory::where('category_id', $id)->get();
+        return json_decode($subcategories);
     }
 }

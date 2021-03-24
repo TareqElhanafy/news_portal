@@ -14,4 +14,8 @@ class SubDistrict extends Model
     {
         return $this->belongsTo(District::class, 'district_id');
     }
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'user_id');
+    }
 }

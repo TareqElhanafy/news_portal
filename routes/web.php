@@ -32,6 +32,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::get('/edit/{id}/{name_en}', 'CategoryController@edit')->name('admin.categories.edit');
         Route::post('/update/{id}/{name_en}', 'CategoryController@update')->name('admin.categories.update');
         Route::get('/delete/{id}/{name_en}', 'CategoryController@destroy')->name('admin.categories.delete');
+        Route::get('/get/subcategories/{id}', 'CategoryController@getSubcategories')->name('admin.categories.subcategories');
     });
 
     /**
@@ -58,9 +59,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::get('/edit/{id}/{name_en}', 'DistrictController@edit')->name('admin.districts.edit');
         Route::post('/update/{id}/{name_en}', 'DistrictController@update')->name('admin.districts.update');
         Route::get('/delete/{id}/{name_en}', 'DistrictController@destroy')->name('admin.districts.delete');
+        Route::get('/get/subdistricts/{id}', 'DistrictController@getSubdistricts')->name('admin.districts.subdistricts');
     });
 
-        /**
+    /**
      *
      * Sub-Districts Routes
      */
@@ -73,4 +75,16 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::get('/delete/{id}/{name_en}', 'SubDistrictController@destroy')->name('admin.subdistricts.delete');
     });
 
+    /**
+     *
+     * Posts Routes
+     */
+    Route::group(['prefix' => 'posts'], function () {
+        Route::get('/', 'PostController@index')->name('admin.posts');
+        Route::get('/create', 'PostController@create')->name('admin.posts.create');
+        Route::post('/store', 'PostController@store')->name('admin.posts.store');
+        Route::get('/edit/{id}', 'PostController@edit')->name('admin.posts.edit');
+        Route::get('/update/{id}', 'PostController@update')->name('admin.posts.update');
+        Route::get('/delete/{id}', 'PostController@delete')->name('admin.posts.delete');
+    });
 });

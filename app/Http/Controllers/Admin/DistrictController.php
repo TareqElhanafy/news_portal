@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\District;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddDistrictRequest;
+use App\SubDistrict;
 use Illuminate\Http\Request;
 
 class DistrictController extends Controller
@@ -106,5 +107,10 @@ class DistrictController extends Controller
                 'message' => 'sorry something went wrong'
             ]);
         }
+    }
+    public function getSubdistricts($id)
+    {
+        $subdistricts = SubDistrict::where('district_id', $id)->get();
+        return json_decode($subdistricts);
     }
 }

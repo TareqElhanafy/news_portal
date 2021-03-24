@@ -113,17 +113,32 @@
             </div>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#uii-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
-                <i class="mdi mdi-laptop"></i>
+                <i class="mdi mdi-apple-safari"></i>
               </span>
               <span class="menu-title">Districts</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="uii-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.districts') }}">District</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.subdistricts') }}">Sub District</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#uii-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-icon">
+                <i class="mdi mdi-apple-safari"></i>
+              </span>
+              <span class="menu-title">Posts</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="uii-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('admin.posts.create') }}">Add Post</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('admin.posts') }}">All Posts</a></li>
               </ul>
             </div>
           </li>
@@ -418,6 +433,7 @@
     <script src="{{ asset('back/assets/js/dashboard.js') }}"></script>
     <!-- End custom js for this page -->
           <!-- sweet alert -->
+          @yield('scripts')
    <!-- sweet alert -->
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
       <!-- toastr -->
