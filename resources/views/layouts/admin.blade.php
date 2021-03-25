@@ -154,6 +154,8 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.settings.social') }}">Social Settings</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.settings.seo') }}">SEO Settings</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('admin.settings.prayer') }}">Prayers Settings</a></li>
+
               </ul>
             </div>
           </li>

@@ -97,5 +97,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::post('/social/update/{id}', 'SocialController@update')->name('admin.settings.social.update');
         Route::get('/seo', 'SeoController@index')->name('admin.settings.seo');
         Route::post('/seo/update/{id}', 'SeoController@update')->name('admin.settings.seo.update');
+        Route::get('/prayer', 'PrayerController@index')->name('admin.settings.prayer');
+        Route::post('/prayer/update/{id}', 'PrayerController@update')->name('admin.settings.prayer.update');
     });
 });
