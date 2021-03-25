@@ -99,5 +99,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::post('/seo/update/{id}', 'SeoController@update')->name('admin.settings.seo.update');
         Route::get('/prayer', 'PrayerController@index')->name('admin.settings.prayer');
         Route::post('/prayer/update/{id}', 'PrayerController@update')->name('admin.settings.prayer.update');
+        Route::get('/livetv', 'LivetvController@index')->name('admin.settings.livetv');
+        Route::post('/livetv/update/{id}', 'LivetvController@update')->name('admin.settings.livetv.update');
+        Route::get('/livetv/change-status', 'LivetvController@changeStatus')->name('admin.settings.livetv.status');
+
     });
 });
