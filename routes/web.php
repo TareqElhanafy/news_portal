@@ -118,6 +118,18 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::get('/edit/{id}', 'WebsiteController@edit')->name('admin.websites.edit');
         Route::post('/update/{id}', 'WebsiteController@update')->name('admin.websites.update');
         Route::get('/delete/{id}', 'WebsiteController@destroy')->name('admin.websites.delete');
+    });
 
+    /**
+     *
+     * Gallery Routes
+     */
+    Route::group(['prefix' => 'gallery'], function () {
+        Route::get('/', 'PhotoController@index')->name('admin.photos');
+        Route::get('/create', 'PhotoController@create')->name('admin.photos.create');
+        Route::post('/store', 'PhotoController@store')->name('admin.photos.store');
+        Route::get('/edit/{id}', 'PhotoController@edit')->name('admin.photos.edit');
+        Route::post('/update/{id}', 'PhotoController@update')->name('admin.photos.update');
+        Route::get('/delete/{id}', 'PhotoController@destroy')->name('admin.photos.delete');
     });
 });

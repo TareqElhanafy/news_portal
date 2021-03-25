@@ -159,7 +159,7 @@
   </script>
     <script>
         CKEDITOR.replace( 'editor2' );
-      </script>
+    </script>
       <!--Loading subcategories with ajax -->
 <script type="text/javascript">
     $(document).ready(function(){
@@ -220,6 +220,6 @@
                     reader.readAsDataURL(input.files[0]);
                   }
                 }
-              </script>
+               </script>
   @endsection
 @endsection
