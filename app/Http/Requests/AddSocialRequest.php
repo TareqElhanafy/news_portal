@@ -35,7 +35,7 @@ class AddSocialRequest extends FormRequest
     public function messages()
     {
         return [
-            'regex'=>'you should enter valid url with http ot https'
+            'regex'=>'you should enter valid url'
         ];
     }
 }

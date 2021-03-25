@@ -92,9 +92,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
      *
      * Settings
      */
-    Route::group(['prefix'=>'settings'], function(){
+    Route::group(['prefix' => 'settings'], function () {
         Route::get('/social', 'SocialController@index')->name('admin.settings.social');
         Route::post('/social/update/{id}', 'SocialController@update')->name('admin.settings.social.update');
-
+        Route::get('/seo', 'SeoController@index')->name('admin.settings.seo');
+        Route::post('/seo/update/{id}', 'SeoController@update')->name('admin.settings.seo.update');
     });
 });
