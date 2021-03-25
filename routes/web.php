@@ -87,4 +87,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::post('/update/{id}', 'PostController@update')->name('admin.posts.update');
         Route::get('/delete/{id}', 'PostController@destroy')->name('admin.posts.delete');
     });
+
+    /**
+     *
+     * Settings
+     */
+    Route::group(['prefix'=>'settings'], function(){
+        Route::get('/social', 'SocialController@index')->name('admin.settings.social');
+        Route::post('/social/update/{id}', 'SocialController@update')->name('admin.settings.social.update');
+
+    });
 });
