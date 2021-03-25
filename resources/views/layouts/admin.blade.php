@@ -156,7 +156,7 @@
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.settings.seo') }}">SEO Settings</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.settings.prayer') }}">Prayers Settings</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.settings.livetv') }}">Live Tv Settings</a></li>
-
+                <li class="nav-item"> <a class="nav-link" href="{{ route('admin.settings.notice') }}">Notice Settings</a></li>
               </ul>
             </div>
           </li>

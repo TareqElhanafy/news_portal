@@ -102,6 +102,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::get('/livetv', 'LivetvController@index')->name('admin.settings.livetv');
         Route::post('/livetv/update/{id}', 'LivetvController@update')->name('admin.settings.livetv.update');
         Route::get('/livetv/change-status', 'LivetvController@changeStatus')->name('admin.settings.livetv.status');
-
+        Route::get('/notice', 'NoticeController@index')->name('admin.settings.notice');
+        Route::post('/notice/update/{id}', 'NoticeController@update')->name('admin.settings.notice.update');
+        Route::get('/notice/change-status', 'NoticeController@changeStatus')->name('admin.settings.notice.status');
     });
 });
