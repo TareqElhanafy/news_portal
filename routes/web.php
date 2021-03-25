@@ -106,4 +106,18 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::post('/notice/update/{id}', 'NoticeController@update')->name('admin.settings.notice.update');
         Route::get('/notice/change-status', 'NoticeController@changeStatus')->name('admin.settings.notice.status');
     });
+
+    /**
+     *
+     * Websites Routes
+     */
+    Route::group(['prefix' => 'websites'], function () {
+        Route::get('/', 'WebsiteController@index')->name('admin.websites');
+        Route::get('/create', 'WebsiteController@create')->name('admin.websites.create');
+        Route::post('/store', 'WebsiteController@store')->name('admin.websites.store');
+        Route::get('/edit/{id}', 'WebsiteController@edit')->name('admin.websites.edit');
+        Route::post('/update/{id}', 'WebsiteController@update')->name('admin.websites.update');
+        Route::get('/delete/{id}', 'WebsiteController@destroy')->name('admin.websites.delete');
+
+    });
 });
