@@ -74,7 +74,12 @@
 					<div class="header-icon">
 						<ul>
 							<!-- version-start -->
-							<li class="version"><a href="#"><B>HINDI</B></a></li>&nbsp;&nbsp;&nbsp;
+                            @if (session()->get('lang') ==='english')
+							<li class="version"><a href="{{ route('setArabic') }}"><B>Arabic</B></a></li>&nbsp;&nbsp;&nbsp;
+                            @else
+							<li class="version"><a href="{{ route('setEnglish') }}"><B>English</B></a></li>&nbsp;&nbsp;&nbsp;
+
+                            @endif
 							<!-- login-start -->
 
 							<!-- search-start -->

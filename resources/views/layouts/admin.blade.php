@@ -161,14 +161,14 @@
             </div>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="#uiii-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#uivii-basic" aria-expanded="false" aria-controls="uivii-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-pencil"></i>
               </span>
               <span class="menu-title">Websites</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="uiii-basic">
+            <div class="collapse" id="uivii-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.websites.create') }}">Add new website</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.websites') }}">All websites</a></li>
@@ -176,14 +176,14 @@
             </div>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="#uiii-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#uiiiii-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-pencil"></i>
               </span>
               <span class="menu-title">Gallery</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="uiii-basic">
+            <div class="collapse" id="uiiiii-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.photos.create') }}">Add new Photo</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.photos') }}">All Photos</a></li>

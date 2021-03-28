@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('frontPage');
+Route::get('/en', 'HomeController@setEnglish')->name('setEnglish');
+Route::get('/ar', 'HomeController@setArabic')->name('setArabic');
 
 Auth::routes();
 
