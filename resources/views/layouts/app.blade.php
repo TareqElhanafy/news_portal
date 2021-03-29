@@ -175,7 +175,9 @@
     </section><!-- /.date-close -->
 
 	<!-- notice-start -->
-
+@php
+    $headlines=DB::table('posts')->where('headline', 1)->limit(3)->get();
+@endphp
     <section>
     	<div class="container-fluid">
 			<div class="row scroll">
@@ -183,13 +185,41 @@
 					Breaking News :
 				</div>
 				<div class="col-md-10 col-sm-9 scroll_02">
-					<marquee>welcome to our website...</marquee>
+                    @foreach ($headlines as $headline)
+					<marquee>
+                        @if (session()->get('lang')==='english')
+                        {{ $headline->title_en }}
+                        @else
+                        {{ $headline->title_ar}}
+                        @endif
+                    </marquee>
+                    @endforeach
+
 				</div>
 			</div>
     	</div>
     </section>
+    @php
+    $notice=DB::table('notices')->first()
+    @endphp
+@if ($notice->status == 1)
+         <section>
+    	<div class="container-fluid">
+			<div class="row scroll">
+				<div class="col-md-2 col-sm-3 scroll_01 ">
+					Important Notice :
+				</div>
+				<div class="col-md-10 col-sm-9 scroll_02">
+					<marquee>
+                     {!! strip_tags($notice->notice_body) !!}
+                    </marquee>
 
-
+				</div>
+			</div>
+    	</div>
+    </section>
+@else
+@endif
             @yield('content')
 
 	<!-- top-footer-start -->
