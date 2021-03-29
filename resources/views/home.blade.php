@@ -134,13 +134,15 @@
 					</div><!-- /.add-close -->
 @php
     $livetv = DB::table('livetvs')->first();
+
 @endphp
 @if ($livetv->status == 1)
 					<!-- youtube-live-start -->
 					<div class="cetagory-title-03">Live TV</div>
 					<div class="photo">
 					<div class="embed-responsive embed-responsive-16by9 embed-responsive-item" style="margin-bottom:5px;">
-                             {!! $livetv->embed_link  !!}
+
+				<iframe width="729" height="410" src="{{ $livetv->embed_link  }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
                      </div>
 					</div><!-- /.youtube-live-close -->
 @endif
@@ -150,7 +152,6 @@
 					<div class="fb-root">
 						facebook page here
 					</div><!-- /.facebook-page-close -->
-
 					<!-- add-start -->
 					<div class="row">
 						<div class="col-md-12 col-sm-12">

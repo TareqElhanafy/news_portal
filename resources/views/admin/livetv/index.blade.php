@@ -14,7 +14,7 @@
             @csrf
             <div class="form-group">
                 <label for="exampleInputName1">Embed Link</label>
-                <textarea class="form-control" name="embed_link" placeholder="Embed Link" id="editor1" rows="4">{{ $livetv->embed_link }}</textarea>
+                <input type="text" value="{{ $livetv->embed_link }}" name="embed_link" class="form-control">
                 @error('embed_link')
                     <div class="alert alert-danger">
                         {{ $message }}
