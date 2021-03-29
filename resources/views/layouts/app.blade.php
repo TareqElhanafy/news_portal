@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        @php
+            $seo = DB::table('seos')->first();
+        @endphp
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="{{ $seo->meta_title }}">
+        <meta name="tag" content="{{ $seo->meta_tag }}">
+        <meta name="description" content="{!! strip_tags($seo->meta_description) !!}">
+        <meta name="google_analytics" content="{{ $seo->google_analytics }}">
+
         <title>360 News Site</title>
 
         <link href="{{ asset('front/assets/css/bootstrap.min.css') }}" rel="stylesheet">
