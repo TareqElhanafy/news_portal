@@ -513,34 +513,18 @@
 							<input type="submit" value="search ">
 						</div>
 				   </form>
+                   @php
+                       $websites = DB::table('websites')->orderBy('id', 'desc')->limit(5)->get()
+                   @endphp
 				   <!-- news -->
 				   <br><br><br><br><br>
-				   <div class="cetagory-title-04"> Important Website</div>
+				   <div class="cetagory-title-04"> Important Websites</div>
 				   <div class="">
+                       @foreach ($websites as $website)
 				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved  </a> </h4>
+				   		<h4 class="heading-03"><a href="{{ $website->link }}"><i class="fa fa-check" aria-hidden="true"></i> {{ $website->name }} </a> </h4>
 				   	</div>
-				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved</a> </h4>
-				   	</div>
-				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved  </a> </h4>
-				   	</div>
-				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved </a> </h4>
-				   	</div>
-				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved  </a> </h4>
-				   	</div>
-				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved  </a> </h4>
-				   	</div>
-				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved  </a> </h4>
-				   	</div>
-				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved </a> </h4>
-				   	</div>
+                       @endforeach
 				   </div>
 
 				</div>
