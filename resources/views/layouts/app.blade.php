@@ -124,14 +124,17 @@
 								</div>
 							</div></li>
 							<!-- social-start -->
+                            @php
+                                $social = DB::table('socials')->first()
+                            @endphp
 							<li>
 								<div class="dropdown">
 								  <button class="dropbtn-02"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
 								  <div class="dropdown-content">
-									<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
-									<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
-									<a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i> Youtube</a>
-									<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a>
+									<a href="https://{{ $social->facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
+									<a href="https://{{ $social->twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
+									<a href="https://{{ $social->youtube }}"><i class="fa fa-youtube-play" aria-hidden="true"></i> Youtube</a>
+									<a href="https://{{ $social->instagram }}"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a>
 								  </div>
 								</div>
 							</li>
