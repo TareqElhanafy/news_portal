@@ -473,9 +473,35 @@
 							</div>
 						</div>
 					</div>
+                    @php
+                        $prayer=DB::table('prayers')->first();
+                    @endphp
 					<!-- Namaj Times -->
 					<div class="cetagory-title-03">Prayer Time </div>
-					Prayer Times count option here
+                    <div>
+                        <table class="table">
+                            <tr>
+                                <th>Fajr</th>
+                                <th>{{ $prayer->fajr }}</th>
+                            </tr>
+                            <tr>
+                                <th>Duhr</th>
+                                <th>{{ $prayer->duhr }}</th>
+                            </tr>
+                            <tr>
+                                <th>Asor</th>
+                                <th>{{ $prayer->asr }}</th>
+                            </tr>
+                            <tr>
+                                <th>Magrib</th>
+                                <th>{{ $prayer->magrib }}</th>
+                            </tr>
+                            <tr>
+                                <th>Asha</th>
+                                <th>{{ $prayer->esha }}</th>
+                            </tr>
+                            </table>
+                    </div>
 					<!-- Namaj Times -->
 					<div class="cetagory-title-03">Old News  </div>
 					<form action="" method="post">

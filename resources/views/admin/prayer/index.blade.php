@@ -34,7 +34,7 @@
             @enderror
           </div>
           <div class="form-group">
-            <label for="exampleInputName1">Instagram</label>
+            <label for="exampleInputName1">Magrib</label>
             <input type="text" class="form-control" id="exampleInputName1" name="magrib" value="{{ $prayer->magrib }}" placeholder="magrib">
             @error('magrib')
                 <div class="alert alert-danger">
