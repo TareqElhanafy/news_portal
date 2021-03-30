@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+@php
+    $firstSectionbigthumbnail = DB::table('posts')->where('first_section_thumbnail', 1)->first()
+@endphp
 	<!-- 1st-news-section-start -->
 	<section class="news-section">
 		<div class="container-fluid">
@@ -9,63 +12,38 @@
 						<div class="col-md-1 col-sm-1 col-lg-1"></div>
 						<div class="col-md-10 col-sm-10">
 							<div class="lead-news">
-	 <div class="service-img"><a href="#"><img src="assets/img/news.jpg" width="800px" alt="Notebook"></a></div>
+	 <div class="service-img"><a href="#"><img src="{{ asset('storage/'.$firstSectionbigthumbnail->image) }}" width="800px" alt="Notebook"></a></div>
 								<div class="content">
-		 <h4 class="lead-heading-01"><a href="#">Modi invited to join March 26 prog in person</a> </h4>
+		 <h4 class="lead-heading-01"><a href="#">
+             @if (session()->get('lang')==='english')
+                 {{ $firstSectionbigthumbnail->title_en }}
+             @else
+             {{ $firstSectionbigthumbnail->title_ar }}
+             @endif
+            </a> </h4>
 								</div>
 							</div>
 						</div>
 
 					</div>
+                    @php
+                        $firstsections = DB::table('posts')->where('first_section', 1)->orderBy('id', 'desc')->limit(3)->get()
+                    @endphp
 						<div class="row">
+                            @foreach ($firstsections as $firstsection)
 								<div class="col-md-3 col-sm-3">
 									<div class="top-news">
-										<a href="#"><img src="assets/img/news.jpg" alt="Notebook"></a>
-										<h4 class="heading-02"><a href="#">TCB to sell potato at Tk 25 per kg: Minister</a> </h4>
+										<a href="#"><img src="{{ asset('storage/'.$firstsection->image) }}" alt="Notebook"></a>
+										<h4 class="heading-02"><a href="#">
+                                            @if (session()->get('lang')==='english')
+                                                {{ $firstsection->title_en }}
+                                                @else
+                                                {{ $firstsection->title_ar }}
+                                            @endif
+                                        </a> </h4>
 									</div>
 								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="top-news">
-										<a href="#"><img src="assets/img/news.jpg" alt="Notebook"></a>
-										<h4 class="heading-02"><a href="#">TCB to sell potato at Tk 25 per kg: Minister</a> </h4>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="top-news">
-										<a href="#"><img src="assets/img/news.jpg" alt="Notebook"></a>
-										<h4 class="heading-02"><a href="#">TCB to sell potato at Tk 25 per kg: Minister</a> </h4>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="top-news">
-										<a href="#"><img src="assets/img/news.jpg" alt="Notebook"></a>
-										<h4 class="heading-02"><a href="#">Working to provide better future for children: PM</a> </h4>
-									</div>
-								</div>
-									<div class="col-md-3 col-sm-3">
-									<div class="top-news">
-										<a href="#"><img src="assets/img/news.jpg" alt="Notebook"></a>
-										<h4 class="heading-02"><a href="#">Bangladesh sees 14 more deaths, 1274 fresh cases</a> </h4>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="top-news">
-										<a href="#"><img src="assets/img/news.jpg" alt="Notebook"></a>
-										<h4 class="heading-02"><a href="#">FFs’ monthly honorarium to be raised Tk 20,000</a> </h4>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="top-news">
-										<a href="#"><img src="assets/img/news.jpg" alt="Notebook"></a>
-										<h4 class="heading-02"><a href="#">Working to provide better future for children: PM</a> </h4>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-3">
-									<div class="top-news">
-										<a href="#"><img src="assets/img/news.jpg" alt="Notebook"></a>
-										<h4 class="heading-02"><a href="#">Working to provide better future for children: PM</a> </h4>
-									</div>
-								</div>
+                                @endforeach
 							</div>
 
 					<!-- add-start -->

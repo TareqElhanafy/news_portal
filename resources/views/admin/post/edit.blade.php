@@ -56,7 +56,9 @@
                     <div class="form-group">
                         <label for="exampleInputName1">Choose Sub-Category</label>
                           <select name="subcategory_id" class="form-control" id="exampleFormControlSelect2">
+                              @if (isset($post->suvcategory))
                               <option value="{{ $post->subcategory->id }}">{{ $post->subcategory->name_en }}</option>
+                              @endif
                           </select>
                           @error('subcategory_id')
                           <div class="alert alert-danger">
