@@ -18,8 +18,8 @@
                     <div class="form-group">
                         <label for="exampleInputName1">Choose Type</label>
                           <select name="type" class="form-control" id="exampleFormControlSelect2">
-                              <option value="1">Big Photo</option>
-                              <option value="0">Small Photo</option>
+                              <option value="1">Big video</option>
+                              <option value="0">Small video</option>
                           </select>
                           @error('type')
                           <div class="alert alert-danger">

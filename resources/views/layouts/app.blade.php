@@ -285,7 +285,7 @@
 			<div class="row">
 				<div class="col-md-6 col-sm-6">
 					<div class="copyright">
-						All rights reserved © 2020 EasyLearning
+						All rights reserved © 2020
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-6">

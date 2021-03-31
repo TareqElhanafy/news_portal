@@ -707,17 +707,20 @@
                 <!--=======================================
                     Video Gallery clickable  jquary  close
                 =========================================-->
-
+             @php
+                $big_video = DB::table('videos')->where('type', 1)->first();
+                $videos = DB::table('videos')->where('type', 0)->limit(5)->get();
+            @endphp
 				</div>
 				<div class="col-md-4 col-sm-5">
-					<div class="gallery_cetagory-title"> photo Gallery </div>
+					<div class="gallery_cetagory-title"> Video Gallery </div>
 
 					<div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="video_screen">
                                 <div class="myVideos" style="width:100%">
                                     <div class="embed-responsive embed-responsive-16by9 embed-responsive-item">
-                                    <iframe width="853" height="480" src="https://www.youtube.com/embed/AWM8164ksVY?list=RDAWM8164ksVY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe width="853" height="480" src="{{ $big_video->embed_link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                                 </div>
                             </div>
@@ -728,43 +731,11 @@
                         <div class="col-md-12">
 
                             <div class="gallery_sec owl-carousel">
-
-                                <div class="video_image" style="width:100%" onclick="currentDivs(1)">
-                                    <img src="assets/img/news.jpg"  alt="Avatar">
-                                    <div class="heading-03">
-                                        <div class="content_padding">
-                                           Kumar Sanu tests positive for coronavirus
-                                        </div>
-                                    </div>
+                                @foreach ($videos as $video)
+                                <div class="embed-responsive embed-responsive-16by9 embed-responsive-item">
+                                    <iframe width="853" height="480" src="{{ $video->embed_link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
-
-                                <div class="video_image" style="width:100%" onclick="currentDivs(1)">
-                                    <img src="assets/img/news.jpg"  alt="Avatar">
-                                    <div class="heading-03">
-                                        <div class="content_padding">
-                                       Kumar Sanu tests positive for coronavirus
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="video_image" style="width:100%" onclick="currentDivs(1)">
-                                    <img src="assets/img/news.jpg"  alt="Avatar">
-                                    <div class="heading-03">
-                                        <div class="content_padding">
-                                          Kumar Sanu tests positive for coronavirus
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="video_image" style="width:100%" onclick="currentDivs(1)">
-                                    <img src="assets/img/news.jpg"  alt="Avatar">
-                                    <div class="heading-03">
-                                        <div class="content_padding">
-                                           Kumar Sanu tests positive for coronavirus
-                                        </div>
-                                    </div>
-                                </div>
-
+                                @endforeach
                             </div>
                         </div>
                     </div>
