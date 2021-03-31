@@ -127,11 +127,22 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
      * Gallery Routes
      */
     Route::group(['prefix' => 'gallery'], function () {
-        Route::get('/', 'PhotoController@index')->name('admin.photos');
-        Route::get('/create', 'PhotoController@create')->name('admin.photos.create');
-        Route::post('/store', 'PhotoController@store')->name('admin.photos.store');
-        Route::get('/edit/{id}', 'PhotoController@edit')->name('admin.photos.edit');
-        Route::post('/update/{id}', 'PhotoController@update')->name('admin.photos.update');
-        Route::get('/delete/{id}', 'PhotoController@destroy')->name('admin.photos.delete');
+        Route::group(['prefix' => 'photos'], function () {
+            Route::get('/', 'PhotoController@index')->name('admin.photos');
+            Route::get('/create', 'PhotoController@create')->name('admin.photos.create');
+            Route::post('/store', 'PhotoController@store')->name('admin.photos.store');
+            Route::get('/edit/{id}', 'PhotoController@edit')->name('admin.photos.edit');
+            Route::post('/update/{id}', 'PhotoController@update')->name('admin.photos.update');
+            Route::get('/delete/{id}', 'PhotoController@destroy')->name('admin.photos.delete');
+        });
+
+        Route::group(['prefix' => 'videos'], function () {
+            Route::get('/', 'VideoController@index')->name('admin.videos');
+            Route::get('/create', 'VideoController@create')->name('admin.videos.create');
+            Route::post('/store', 'VideoController@store')->name('admin.videos.store');
+            Route::get('/edit/{id}', 'VideoController@edit')->name('admin.videos.edit');
+            Route::post('/update/{id}', 'VideoController@update')->name('admin.videos.update');
+            Route::get('/delete/{id}', 'VideoController@destroy')->name('admin.videos.delete');
+        });
     });
 });

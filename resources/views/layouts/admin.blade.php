@@ -187,6 +187,8 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.photos.create') }}">Add new Photo</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('admin.photos') }}">All Photos</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('admin.videos.create') }}">Add new Video</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('admin.videos') }}">All Videos</a></li>
               </ul>
             </div>
           </li>

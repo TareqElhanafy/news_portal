@@ -24,7 +24,7 @@
             </div>
             @enderror
           </div>
-          <button type="submit" class="btn btn-primary mr-2">Submit</button>
+          <button type="submit" class="btn btn-primary mr-2">Save</button>
           <a href="{{ route('admin.districts') }}" class="btn btn-dark">Cancel</a>
         </form>
       </div>

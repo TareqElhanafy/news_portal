@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
 @php
-    $firstSectionbigthumbnail = DB::table('posts')->where('first_section_thumbnail', 1)->first()
+    $firstSectionbigthumbnail = DB::table('posts')->where('first_section_thumbnail', 1)->first();
+    $firstsections = DB::table('posts')->where('first_section', 1)->orderBy('id', 'desc')->limit(3)->get();
 @endphp
 	<!-- 1st-news-section-start -->
 	<section class="news-section">
@@ -27,7 +28,6 @@
 
 					</div>
                     @php
-                        $firstsections = DB::table('posts')->where('first_section', 1)->orderBy('id', 'desc')->limit(3)->get()
                     @endphp
 						<div class="row">
                             @foreach ($firstsections as $firstsection)
@@ -59,6 +59,8 @@
 							<div class="bg-one">
                                 @php
                                     $first_cat = DB::table('categories')->first();
+                                    $first_cat_top_post = DB::table('posts')->where('category_id', $first_cat->id)->where('bigthumbnail', 1)->first();
+                                     $first_cat_top_posts = DB::table('posts')->where('category_id', $first_cat->id)->where('bigthumbnail', null)->limit(2)->get();
                                 @endphp
 								<div class="cetagory-title"><a href="#">
                                     @if (session()->get('lang')==='english')
@@ -68,10 +70,6 @@
                                 @endif
                                      <span>More <i class="fa fa-angle-double-right" aria-hidden="true"></i></span></a></div>
 								<div class="row">
-                                    @php
-                                        $first_cat_top_post = DB::table('posts')->where('category_id', $first_cat->id)->where('bigthumbnail', 1)->first();
-                                        $first_cat_top_posts = DB::table('posts')->where('category_id', $first_cat->id)->where('bigthumbnail', null)->limit(2)->get();
-                                 @endphp
 									<div class="col-md-6 col-sm-6">
 										<div class="top-news">
 											<a href="#"><img src="{{ asset('storage/'.$first_cat_top_post->image) }}" alt="Notebook"></a>
@@ -105,6 +103,8 @@
 							<div class="bg-one">
                                 @php
                                 $second_cat = DB::table('categories')->skip(1)->first();
+                                $second_cat_top_post = DB::table('posts')->where('category_id', $second_cat->id)->where('bigthumbnail', 1)->first();
+                                $second_cat_top_posts = DB::table('posts')->where('category_id', $second_cat->id)->where('bigthumbnail', null)->limit(2)->get();
                             @endphp
 								<div class="cetagory-title"><a href="#">
                                     @if (session()->get('lang')==='english')
@@ -114,10 +114,6 @@
                                 @endif
                                     <span>More <i class="fa fa-angle-double-right" aria-hidden="true"></i></span></a></div>
 								<div class="row">
-                                    @php
-                                    $second_cat_top_post = DB::table('posts')->where('category_id', $second_cat->id)->where('bigthumbnail', 1)->first();
-                                    $second_cat_top_posts = DB::table('posts')->where('category_id', $second_cat->id)->where('bigthumbnail', null)->limit(2)->get();
-                             @endphp
 									<div class="col-md-6 col-sm-6">
 										<div class="top-news">
 											<a href="#"><img src="{{ asset('storage/'.$second_cat_top_post->image) }}" alt="Notebook"></a>
@@ -197,6 +193,8 @@
                     <div class="bg-one">
                         @php
                             $third_cat = DB::table('categories')->skip(2)->first();
+                            $third_cat_top_post = DB::table('posts')->where('category_id', $third_cat->id)->where('bigthumbnail', 1)->first();
+                            $third_cat_top_posts = DB::table('posts')->where('category_id', $third_cat->id)->where('bigthumbnail', null)->limit(2)->get();
                         @endphp
                         <div class="cetagory-title"><a href="#">
                             @if (session()->get('lang')==='english')
@@ -206,10 +204,6 @@
                         @endif
                              <span>More <i class="fa fa-angle-double-right" aria-hidden="true"></i></span></a></div>
                         <div class="row">
-                            @php
-                                $third_cat_top_post = DB::table('posts')->where('category_id', $third_cat->id)->where('bigthumbnail', 1)->first();
-                                $third_cat_top_posts = DB::table('posts')->where('category_id', $third_cat->id)->where('bigthumbnail', null)->limit(2)->get();
-                         @endphp
                             <div class="col-md-6 col-sm-6">
                                 <div class="top-news">
                                     <a href="#"><img src="{{ asset('storage/'.$third_cat_top_post->image) }}" alt="Notebook"></a>
@@ -243,6 +237,8 @@
                     <div class="bg-one">
                         @php
                             $fourth_cat = DB::table('categories')->skip(3)->first();
+                            $fourth_cat_top_post = DB::table('posts')->where('category_id', $fourth_cat->id)->where('bigthumbnail', 1)->first();
+                            $fourth_cat_top_posts = DB::table('posts')->where('category_id', $fourth_cat->id)->where('bigthumbnail', null)->limit(2)->get();
                         @endphp
                         <div class="cetagory-title"><a href="#">
                             @if (session()->get('lang')==='english')
@@ -252,10 +248,6 @@
                         @endif
                              <span>More <i class="fa fa-angle-double-right" aria-hidden="true"></i></span></a></div>
                         <div class="row">
-                            @php
-                                $fourth_cat_top_post = DB::table('posts')->where('category_id', $fourth_cat->id)->where('bigthumbnail', 1)->first();
-                                $fourth_cat_top_posts = DB::table('posts')->where('category_id', $fourth_cat->id)->where('bigthumbnail', null)->limit(2)->get();
-                         @endphp
                             <div class="col-md-6 col-sm-6">
                                 <div class="top-news">
                                     <a href="#"><img src="{{ asset('storage/'.$fourth_cat_top_post->image) }}" alt="Notebook"></a>
@@ -292,6 +284,8 @@
                     <div class="bg-one">
                         @php
                             $fifth_cat = DB::table('categories')->skip(4)->first();
+                            $fifth_cat_top_post = DB::table('posts')->where('category_id', $fifth_cat->id)->where('bigthumbnail', 1)->first();
+                            $fifth_cat_top_posts = DB::table('posts')->where('category_id', $fifth_cat->id)->where('bigthumbnail', null)->limit(2)->get();
                         @endphp
                         <div class="cetagory-title"><a href="#">
                             @if (session()->get('lang')==='english')
@@ -301,10 +295,6 @@
                         @endif
                              <span>More <i class="fa fa-angle-double-right" aria-hidden="true"></i></span></a></div>
                         <div class="row">
-                            @php
-                                $fifth_cat_top_post = DB::table('posts')->where('category_id', $fifth_cat->id)->where('bigthumbnail', 1)->first();
-                                $fifth_cat_top_posts = DB::table('posts')->where('category_id', $fifth_cat->id)->where('bigthumbnail', null)->limit(2)->get();
-                         @endphp
                             <div class="col-md-6 col-sm-6">
                                 <div class="top-news">
                                     <a href="#"><img src="{{ asset('storage/'.$fifth_cat_top_post->image) }}" alt="Notebook"></a>
@@ -338,6 +328,8 @@
                     <div class="bg-one">
                         @php
                             $sixth_cat = DB::table('categories')->skip(5)->first();
+                            $sixth_cat_top_post = DB::table('posts')->where('category_id', $sixth_cat->id)->where('bigthumbnail', 1)->first();
+                            $sixth_cat_top_posts = DB::table('posts')->where('category_id', $sixth_cat->id)->where('bigthumbnail', null)->limit(2)->get();
                         @endphp
                         <div class="cetagory-title"><a href="#">
                             @if (session()->get('lang')==='english')
@@ -347,10 +339,6 @@
                         @endif
                              <span>More <i class="fa fa-angle-double-right" aria-hidden="true"></i></span></a></div>
                         <div class="row">
-                            @php
-                                $sixth_cat_top_post = DB::table('posts')->where('category_id', $sixth_cat->id)->where('bigthumbnail', 1)->first();
-                                $sixth_cat_top_posts = DB::table('posts')->where('category_id', $sixth_cat->id)->where('bigthumbnail', null)->limit(2)->get();
-                         @endphp
                             <div class="col-md-6 col-sm-6">
                                 <div class="top-news">
                                     <a href="#"><img src="{{ asset('storage/'.$sixth_cat_top_post->image) }}" alt="Notebook"></a>
@@ -445,6 +433,8 @@
 					<div class="row">
                         @php
                         $seventh_cat = DB::table('categories')->skip(6)->first();
+                        $seventh_cat_top_post = DB::table('posts')->where('category_id', $seventh_cat->id)->where('bigthumbnail', 1)->first();
+                        $seventh_cat_top_posts = DB::table('posts')->where('category_id', $seventh_cat->id)->where('bigthumbnail', null)->get();
                     @endphp
 						<div class="col-md-12 col-sm-12">
 							<div class="cetagory-title-02"><a href="#">
@@ -455,10 +445,6 @@
                             @endif
                                 <i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i> More  </span></a></div>
 						</div>
-                        @php
-                        $seventh_cat_top_post = DB::table('posts')->where('category_id', $seventh_cat->id)->where('bigthumbnail', 1)->first();
-                        $seventh_cat_top_posts = DB::table('posts')->where('category_id', $seventh_cat->id)->where('bigthumbnail', null)->get();
-                 @endphp
 						<div class="col-md-4 col-sm-4">
 							<div class="bg-gray">
 								<div class="top-news">
