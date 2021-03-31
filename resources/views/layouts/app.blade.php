@@ -30,7 +30,7 @@
 			<div class="row">
 				<div class="col-xs-6 col-md-2 col-sm-4">
 					<div class="header_logo">
-						<a href=""><img src="{{ asset('front/assets/img/demo_logo.png') }}"></a>
+						<a href="{{ route('frontPage') }}"><img src="{{ asset('front/assets/img/demo_logo.png') }}"></a>
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-8 col-sm-8">

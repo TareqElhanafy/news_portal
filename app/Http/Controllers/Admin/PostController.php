@@ -165,4 +165,25 @@ class PostController extends Controller
             ]);
         }
     }
+
+    public function singlePost($id)
+    {
+        try {
+            $post = Post::find($id);
+            if (!$post) {
+                return redirect()->route('frontPage')->with([
+                    'alert-type' => 'error',
+                    'message' => "This post doen't exist"
+                ]);
+            }
+            $post->views = $post->views + 1;
+            $post->save();
+            return view('admin.post.single', compact('post'));
+        } catch (\Exception $ex) {
+            return redirect()->route('frontPage')->with([
+                'alert-type' => 'error',
+                'message' => 'sorry something went wrong'
+            ]);
+        }
+    }
 }

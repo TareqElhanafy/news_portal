@@ -13,9 +13,9 @@
 						<div class="col-md-1 col-sm-1 col-lg-1"></div>
 						<div class="col-md-10 col-sm-10">
 							<div class="lead-news">
-	 <div class="service-img"><a href="#"><img src="{{ asset('storage/'.$firstSectionbigthumbnail->image) }}" width="800px" alt="Notebook"></a></div>
+	 <div class="service-img"><a href="{{ route('singlePost',$firstSectionbigthumbnail->id) }}"><img src="{{ asset('storage/'.$firstSectionbigthumbnail->image) }}" width="800px" alt="Notebook"></a></div>
 								<div class="content">
-		 <h4 class="lead-heading-01"><a href="#">
+		 <h4 class="lead-heading-01"><a href="{{ route('singlePost',$firstSectionbigthumbnail->id) }}">
              @if (session()->get('lang')==='english')
                  {{ $firstSectionbigthumbnail->title_en }}
              @else
@@ -33,8 +33,8 @@
                             @foreach ($firstsections as $firstsection)
 								<div class="col-md-3 col-sm-3">
 									<div class="top-news">
-										<a href="#"><img src="{{ asset('storage/'.$firstsection->image) }}" alt="Notebook"></a>
-										<h4 class="heading-02"><a href="#">
+										<a href="{{ route('singlePost',$firstsection->id) }}"><img src="{{ asset('storage/'.$firstsection->image) }}" alt="Notebook"></a>
+										<h4 class="heading-02"><a href="{{ route('singlePost',$firstsection->id) }}">
                                             @if (session()->get('lang')==='english')
                                                 {{ $firstsection->title_en }}
                                                 @else
@@ -72,8 +72,8 @@
 								<div class="row">
 									<div class="col-md-6 col-sm-6">
 										<div class="top-news">
-											<a href="#"><img src="{{ asset('storage/'.$first_cat_top_post->image) }}" alt="Notebook"></a>
-											<h4 class="heading-02"><a href="#">
+											<a href="{{ route('singlePost',$first_cat_top_post->id) }}"><img src="{{ asset('storage/'.$first_cat_top_post->image) }}" alt="Notebook"></a>
+											<h4 class="heading-02"><a href="{{ route('singlePost',$first_cat_top_post->id) }}">
                                                 @if (session()->get('lang')==='english')
                                                 {{ $first_cat_top_post->title_en }}
                                                 @else
@@ -85,8 +85,8 @@
 									<div class="col-md-6 col-sm-6">
                                         @foreach ($first_cat_top_posts as $first_cat_top_post)
 										<div class="image-title">
-											<a href="#"><img src="{{ asset('storage/'.$first_cat_top_post->image) }}" alt="Notebook"></a>
-											<h4 class="heading-03"><a href="#">
+											<a href="{{ route('singlePost',$first_cat_top_post->id) }}"><img src="{{ asset('storage/'.$first_cat_top_post->image) }}" alt="Notebook"></a>
+											<h4 class="heading-03"><a href="{{ route('singlePost',$first_cat_top_post->id) }}">
                                                 @if (session()->get('lang')==='english')
                                                 {{ $first_cat_top_post->title_en }}
                                                 @else
@@ -116,8 +116,8 @@
 								<div class="row">
 									<div class="col-md-6 col-sm-6">
 										<div class="top-news">
-											<a href="#"><img src="{{ asset('storage/'.$second_cat_top_post->image) }}" alt="Notebook"></a>
-											<h4 class="heading-02"><a href="#">
+											<a href="{{ route('singlePost',$second_cat_top_post->id) }}"><img src="{{ asset('storage/'.$second_cat_top_post->image) }}" alt="Notebook"></a>
+											<h4 class="heading-02"><a href="{{ route('singlePost',$second_cat_top_post->id) }}">
                                                 @if (session()->get('lang')==='english')
                                                 {{ $second_cat_top_post->title_en }}
                                                 @else
@@ -129,8 +129,8 @@
 									<div class="col-md-6 col-sm-6">
                                         @foreach ($second_cat_top_posts as $second_cat_top_post)
 										<div class="image-title">
-											<a href="#"><img src="{{ asset('storage/'.$second_cat_top_post->image) }}" alt="Notebook"></a>
-											<h4 class="heading-03"><a href="#">
+											<a href="{{ route('singlePost',$second_cat_top_post->id) }}"><img src="{{ asset('storage/'.$second_cat_top_post->image) }}" alt="Notebook"></a>
+											<h4 class="heading-03"><a href="{{ route('singlePost',$second_cat_top_post->id) }}">
                                                 @if (session()->get('lang')==='english')
                                                 {{ $second_cat_top_post->title_en }}
                                                 @else
@@ -206,8 +206,8 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <div class="top-news">
-                                    <a href="#"><img src="{{ asset('storage/'.$third_cat_top_post->image) }}" alt="Notebook"></a>
-                                    <h4 class="heading-02"><a href="#">
+                                    <a href="{{ route('singlePost',$third_cat_top_post->id) }}"><img src="{{ asset('storage/'.$third_cat_top_post->image) }}" alt="Notebook"></a>
+                                    <h4 class="heading-02"><a href="{{ route('singlePost',$third_cat_top_post->id) }}">
                                         @if (session()->get('lang')==='english')
                                         {{ $third_cat_top_post->title_en }}
                                         @else
@@ -219,8 +219,8 @@
                             <div class="col-md-6 col-sm-6">
                                 @foreach ($third_cat_top_posts as $third_cat_top_post)
                                 <div class="image-title">
-                                    <a href="#"><img src="{{ asset('storage/'.$third_cat_top_post->image) }}" alt="Notebook"></a>
-                                    <h4 class="heading-03"><a href="#">
+                                    <a href="{{ route('singlePost',$third_cat_top_post->id) }}"><img src="{{ asset('storage/'.$third_cat_top_post->image) }}" alt="Notebook"></a>
+                                    <h4 class="heading-03"><a href="{{ route('singlePost',$third_cat_top_post->id) }}">
                                         @if (session()->get('lang')==='english')
                                         {{ $third_cat_top_post->title_en }}
                                         @else
@@ -250,8 +250,8 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <div class="top-news">
-                                    <a href="#"><img src="{{ asset('storage/'.$fourth_cat_top_post->image) }}" alt="Notebook"></a>
-                                    <h4 class="heading-02"><a href="#">
+                                    <a href="{{ route('singlePost',$fourth_cat_top_post->id) }}"><img src="{{ asset('storage/'.$fourth_cat_top_post->image) }}" alt="Notebook"></a>
+                                    <h4 class="heading-02"><a href="{{ route('singlePost',$fourth_cat_top_post->id) }}">
                                         @if (session()->get('lang')==='english')
                                         {{ $fourth_cat_top_post->title_en }}
                                         @else
@@ -263,8 +263,8 @@
                             <div class="col-md-6 col-sm-6">
                                 @foreach ($fourth_cat_top_posts as $fourth_cat_top_post)
                                 <div class="image-title">
-                                    <a href="#"><img src="{{ asset('storage/'.$fourth_cat_top_post->image) }}" alt="Notebook"></a>
-                                    <h4 class="heading-03"><a href="#">
+                                    <a href="{{ route('singlePost',$fourth_cat_top_post->id) }}"><img src="{{ asset('storage/'.$fourth_cat_top_post->image) }}" alt="Notebook"></a>
+                                    <h4 class="heading-03"><a href="{{ route('singlePost',$fourth_cat_top_post->id) }}">
                                         @if (session()->get('lang')==='english')
                                         {{ $fourth_cat_top_post->title_en }}
                                         @else
@@ -297,8 +297,8 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <div class="top-news">
-                                    <a href="#"><img src="{{ asset('storage/'.$fifth_cat_top_post->image) }}" alt="Notebook"></a>
-                                    <h4 class="heading-02"><a href="#">
+                                    <a href="{{ route('singlePost',$fifth_cat_top_post->id) }}"><img src="{{ asset('storage/'.$fifth_cat_top_post->image) }}" alt="Notebook"></a>
+                                    <h4 class="heading-02"><a href="{{ route('singlePost',$fifth_cat_top_post->id) }}">
                                         @if (session()->get('lang')==='english')
                                         {{ $fifth_cat_top_post->title_en }}
                                         @else
@@ -310,8 +310,8 @@
                             <div class="col-md-6 col-sm-6">
                                 @foreach ($fifth_cat_top_posts as $fifth_cat_top_post)
                                 <div class="image-title">
-                                    <a href="#"><img src="{{ asset('storage/'.$fifth_cat_top_post->image) }}" alt="Notebook"></a>
-                                    <h4 class="heading-03"><a href="#">
+                                    <a href="{{ route('singlePost',$fifth_cat_top_post->id) }}"><img src="{{ asset('storage/'.$fifth_cat_top_post->image) }}" alt="Notebook"></a>
+                                    <h4 class="heading-03"><a href="{{ route('singlePost',$fifth_cat_top_post->id) }}">
                                         @if (session()->get('lang')==='english')
                                         {{ $fifth_cat_top_post->title_en }}
                                         @else
@@ -341,8 +341,8 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <div class="top-news">
-                                    <a href="#"><img src="{{ asset('storage/'.$sixth_cat_top_post->image) }}" alt="Notebook"></a>
-                                    <h4 class="heading-02"><a href="#">
+                                    <a href="{{ route('singlePost',$sixth_cat_top_post->id) }}"><img src="{{ asset('storage/'.$sixth_cat_top_post->image) }}" alt="Notebook"></a>
+                                    <h4 class="heading-02"><a href="{{ route('singlePost',$sixth_cat_top_post->id) }}">
                                         @if (session()->get('lang')==='english')
                                         {{ $sixth_cat_top_post->title_en }}
                                         @else
@@ -354,8 +354,8 @@
                             <div class="col-md-6 col-sm-6">
                                 @foreach ($sixth_cat_top_posts as $sixth_cat_top_post)
                                 <div class="image-title">
-                                    <a href="#"><img src="{{ asset('storage/'.$sixth_cat_top_post->image) }}" alt="Notebook"></a>
-                                    <h4 class="heading-03"><a href="#">
+                                    <a href="{{ route('singlePost',$sixth_cat_top_post->id) }}"><img src="{{ asset('storage/'.$sixth_cat_top_post->image) }}" alt="Notebook"></a>
+                                    <h4 class="heading-03"><a href="{{ route('singlePost',$sixth_cat_top_post->id) }}">
                                         @if (session()->get('lang')==='english')
                                         {{ $sixth_cat_top_post->title_en }}
                                         @else
@@ -403,8 +403,8 @@
 					<div class="row">
 						<div class="col-md-4 col-sm-4">
 							<div class="top-news">
-								<a href="#"><img src="{{ asset('storage/'.$district_top_post->image) }}" alt="Notebook"></a>
-								<h4 class="heading-02"><a href="#">
+								<a href="{{ route('singlePost',$district_top_post->id) }}"><img src="{{ asset('storage/'.$district_top_post->image) }}" alt="Notebook"></a>
+								<h4 class="heading-02"><a href="{{ route('singlePost',$district_top_post->id) }}">
                                     @if (session()->get('lang')==='english')
                                     {{ $district_top_post->title_en }}
                                     @else
@@ -416,8 +416,8 @@
 						<div class="col-md-4 col-sm-4">
                             @foreach ($district_posts as $district_post)
 							<div class="image-title">
-								<a href="#"><img src="{{ asset('storage/'.$district_post->image) }}" alt="Notebook"></a>
-								<h4 class="heading-03"><a href="#">
+								<a href="{{ route('singlePost',$district_top_post->id) }}"><img src="{{ asset('storage/'.$district_post->image) }}" alt="Notebook"></a>
+								<h4 class="heading-03"><a href="{{ route('singlePost',$district_top_post->id) }}">
                                     @if (session()->get('lang')==='english')
                                     {{ $district_post->title_en }}
                                     @else
@@ -448,8 +448,8 @@
 						<div class="col-md-4 col-sm-4">
 							<div class="bg-gray">
 								<div class="top-news">
-									<a href="#"><img src="{{ asset('storage/'.$seventh_cat_top_post->image) }}" alt="Notebook"></a>
-									<h4 class="heading-02"><a href="#">
+									<a href="{{ route('singlePost',$seventh_cat_top_post->id) }}"><img src="{{ asset('storage/'.$seventh_cat_top_post->image) }}" alt="Notebook"></a>
+									<h4 class="heading-02"><a href="{{ route('singlePost',$seventh_cat_top_post->id) }}">
                                         @if (session()->get('lang')==='english')
                                         {{ $seventh_cat_top_post->title_en }}
                                         @else
@@ -462,7 +462,7 @@
 						<div class="col-md-4 col-sm-4">
                             @foreach ($seventh_cat_top_posts as $seventh_cat_top_post)
 							<div class="news-title">
-								<a href="#">
+								<a href="{{ route('singlePost',$seventh_cat_top_post->id) }}">
                                     @if (session()->get('lang')==='english')
                                     {{ $seventh_cat_top_post->title_en }}
                                     @else
@@ -490,87 +490,46 @@
 						<ul class="nav nav-tabs nav-justified" role="tablist">
 							<li role="presentation" class="active"><a href="#tab21" aria-controls="tab21" role="tab" data-toggle="tab" aria-expanded="false">Latest</a></li>
 							<li role="presentation" ><a href="#tab22" aria-controls="tab22" role="tab" data-toggle="tab" aria-expanded="true">Popular</a></li>
-							<li role="presentation" ><a href="#tab23" aria-controls="tab23" role="tab" data-toggle="tab" aria-expanded="true">Popular1</a></li>
 						</ul>
 
-						<!-- Tab panes -->
-						<div class="tab-content ">
-							<div role="tabpanel" class="tab-pane in active" id="tab21">
-								<div class="news-titletab">
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
+					<!-- Tab panes -->
+					<div class="tab-content ">
+						<div role="tabpanel" class="tab-pane in active" id="tab21">
+                            @php
+                                $latestposts = DB::table('posts')->orderBy('id', 'desc')->limit(5)->get();
+                                $popularposts = DB::table('posts')->orderBy('views', 'desc')->limit(5)->get();
+                            @endphp
+							<div class="news-titletab">
+                                @foreach ($latestposts as $post)
+								<div class="news-title-02">
+									<h4 class="heading-03"><a href="{{ route('singlePost', $post->id) }}">
+                                    @if (session()->get('lang')==='english')
+                                    {{ $post->title_en }}
+                                    @else
+                                    {{ $post->title_ar }}
+                                    @endif
+                                    </a> </h4>
 								</div>
-							</div>
-							<div role="tabpanel" class="tab-pane fade" id="tab22">
-								<div class="news-titletab">
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-								</div>
-							</div>
-							<div role="tabpanel" class="tab-pane fade" id="tab23">
-								<div class="news-titletab">
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-								</div>
+                                @endforeach
+
 							</div>
 						</div>
+						<div role="tabpanel" class="tab-pane fade" id="tab22">
+							<div class="news-titletab">
+                                @foreach ($popularposts as $post)
+								<div class="news-title-02">
+									<h4 class="heading-03"><a href="{{ route('singlePost', $post->id) }}">
+                                    @if (session()->get('lang')==='english')
+                                    {{ $post->title_en }}
+                                    @else
+                                    {{ $post->title_ar }}
+                                    @endif
+                                    </a> </h4>
+								</div>
+                                @endforeach
+							</div>
+						</div>
+					</div>
 					</div>
                     @php
                         $prayer=DB::table('prayers')->first();
