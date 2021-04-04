@@ -386,48 +386,42 @@
 	<section class="news-section">
 		<div class="container-fluid">
 			<div class="row">
-                @php
-                    $district = DB::table('districts')->first();
-                    $district_top_post = DB::table('posts')->where('district_id', $district->id)->where('bigthumbnail', 1)->first();
-                    $district_posts = DB::table('posts')->where('district_id', $district->id)->limit(3)->get();
-                @endphp
 				<div class="col-md-9 col-sm-9">
-					<div class="cetagory-title-02"><a href="">
-                        @if (session()->get('lang')==='english')
-                        {{ $district->name_en }}
-                        @else
-                        {{ $district->name_ar }}
-                        @endif
-                        <i class="fa fa-angle-right" aria-hidden="true"></i> all district news tab here <span><i class="fa fa-plus" aria-hidden="true"></i> All News  </span></a></div>
+                        <div class="row">
 
-					<div class="row">
-						<div class="col-md-4 col-sm-4">
-							<div class="top-news">
-								<a href="{{ route('singlePost',$district_top_post->id) }}"><img src="{{ asset('storage/'.$district_top_post->image) }}" alt="Notebook"></a>
-								<h4 class="heading-02"><a href="{{ route('singlePost',$district_top_post->id) }}">
-                                    @if (session()->get('lang')==='english')
-                                    {{ $district_top_post->title_en }}
-                                    @else
-                                    {{ $district_top_post->title_ar }}
-                                    @endif
-                                </a> </h4>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-                            @foreach ($district_posts as $district_post)
-							<div class="image-title">
-								<a href="{{ route('singlePost',$district_top_post->id) }}"><img src="{{ asset('storage/'.$district_post->image) }}" alt="Notebook"></a>
-								<h4 class="heading-03"><a href="{{ route('singlePost',$district_top_post->id) }}">
-                                    @if (session()->get('lang')==='english')
-                                    {{ $district_post->title_en }}
-                                    @else
-                                    {{ $district_post->title_ar }}
-                                    @endif
-                                 </a> </h4>
-							</div>
-                            @endforeach
-						</div>
-					</div>
+                            @php
+                            $districts = DB::table('districts')->get();
+                            @endphp
+                                    <div class="cetagory-title-02"><a href="">Search By District<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i>   </span></a></div>
+                                    <form action="{{ route('search.district.posts') }}" method="get">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                             <select class="form-control" id="exampleSelectGender" name="district_id">
+                               <option disabled="" selected="">--Select District--</option>
+                               @foreach ($districts as $district)
+                               <option value="{{ $district->id }}">{{ $district->name_en }} </option>
+                               @endforeach
+                                                    </select>
+
+                                            </div>
+
+                                    <div class="col-lg-4">
+                                  <select class="form-control" id="subdistrict_id" name="subdistrict_id">
+                                <option disabled="" selected="">--Select SubDistrict--</option>
+                                                    </select>
+                                            </div>
+
+                                            <div class="col-lg-4">
+                                        <button class="btn btn-success btn-block">Search</button>
+                                            </div>
+
+                                        </div>
+
+                                    </form>
+
+
+                                </div>
 					<!-- ******* -->
 					<br />
 					<div class="row">
@@ -733,4 +727,5 @@
 			</div>
 		</div>
 	</section><!-- /.gallery-section-close -->
+
 @endsection

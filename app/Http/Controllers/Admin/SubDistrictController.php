@@ -69,7 +69,7 @@ class SubDistrictController extends Controller
             $subdistrict = SubDistrict::find($id);
             if (!$subdistrict) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'error',
+                    'alert-type' => 'error',
                     'message' => "This sub district doesn't exist"
                 ]);
             }
@@ -96,7 +96,7 @@ class SubDistrictController extends Controller
             $subdistrict = SubDistrict::find($id);
             if (!$subdistrict) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'error',
+                    'alert-type' => 'error',
                     'message' => "This sub district doesn't exist"
                 ]);
             }

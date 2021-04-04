@@ -38,7 +38,7 @@ class LivetvController extends Controller
         $livetv = DB::table('livetvs')->first();
         if (!$livetv) {
             return redirect()->back()->with([
-                'alertt-type' => 'error',
+                'alert-type' => 'error',
                 'message' => "This Livetv doesn't exist"
             ]);
         }

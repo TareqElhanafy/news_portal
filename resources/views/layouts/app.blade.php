@@ -21,7 +21,8 @@
         <link href="{{ asset('front/assets/css/responsive.css') }}" rel="stylesheet">
         <link href="{{ asset('front/assets/css/owl.carousel.min.css') }}" rel="stylesheet">
         <link href="{{ asset('front/assets/style.css') }}" rel="stylesheet">
-
+     <!-- toastr -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     </head>
     <body>
     <!-- header-start -->
@@ -298,11 +299,58 @@
 			</div>
 		</div>
 	</section>
-
 		<script src="{{ asset('front/assets/js/jquery.min.js') }}"></script>
 		<script src="{{ asset('front/assets/js/bootstrap.min.js') }}"></script>
 		<script src="{{ asset('front/assets/js/main.js') }}"></script>
 		<script src="{{ asset('front/assets/js/owl.carousel.min.js') }}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+              <!-- toastr -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+   <!--  toaster -->
+   <script>
+      @if(Session::has('message'))
+      var type = "{{ Session::get('alert-type') }}"
+      switch (type) {
+          case 'info':
+              toastr.info("{{ Session::get('message') }}")
+              break;
+              case 'success':
+              toastr.success("{{ Session::get('message') }}")
+              break;
+              case 'error':
+              toastr.error("{{ Session::get('message') }}")
+              break;
+              case 'warning':
+              toastr.info("{{ Session::get('message') }}")
+              break;
+          default:
+              break;
+      }
+      @endif
+  </script>
+                  <!--Loading subdistricts with ajax -->
+                  <script type="text/javascript">
+                    $(document).ready(function(){
+                   $('select[name="district_id"]').on('change',function(){
+                        var district_id = $(this).val();
+                        if (district_id) {
+                          $.ajax({
+                            url: "{{ url('/search/get/subdistricts/') }}/"+district_id,
+                            type:"GET",
+                            dataType:"json",
+                            success:function(data) {
+                            var d =$('select[name="subdistrict_id"]').empty();
+                            $.each(data, function(key, value){
+                            $('select[name="subdistrict_id"]').append('<option value="'+ value.id + '">' + value.name_en + '</option>');
+                            });
+                            },
+                          });
+                        }else{
+                          alert('danger');
+                        }
+                          });
+                    });
+                </script>
 	</body>
 </html>
 

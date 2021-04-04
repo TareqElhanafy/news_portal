@@ -47,7 +47,7 @@ class DistrictController extends Controller
             $district = District::find($id);
             if (!$district) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'error',
+                    'alert-type' => 'error',
                     'message' => "This district doesn't exist"
                 ]);
             }
@@ -66,7 +66,7 @@ class DistrictController extends Controller
             $district = District::find($id);
             if (!$district) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'error',
+                    'alert-type' => 'error',
                     'message' => "This district doesn't exist"
                 ]);
             }
@@ -92,7 +92,7 @@ class DistrictController extends Controller
             $district = District::find($id);
             if (!$district) {
                 return redirect()->back()->with([
-                    'alertt-type' => 'error',
+                    'alert-type' => 'error',
                     'message' => "This district doesn't exist"
                 ]);
             }
