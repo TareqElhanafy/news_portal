@@ -14,7 +14,7 @@ class WebsiteController extends Controller
         try {
             $websites = DB::table('websites')->get();
             return view('admin.website.index', compact('websites'));
-        } catch (\Throwable $th) {
+        } catch (\Exception $ex) {
             return redirect()->route('dashboard')->with([
                 'alert-type' => 'error',
                 'message' => 'something went wrong',
@@ -26,7 +26,7 @@ class WebsiteController extends Controller
     {
         try {
             return view('admin.website.create');
-        } catch (\Throwable $th) {
+        } catch (\Exception $ex) {
             return redirect()->route('admin.websites')->with([
                 'alert-type' => 'error',
                 'message' => 'something went wrong',
@@ -58,7 +58,7 @@ class WebsiteController extends Controller
         try {
             $website = DB::table('websites')->where('id', $id)->first();
             return view('admin.website.edit', compact('website'));
-        } catch (\Throwable $th) {
+        } catch (\Exception $ex) {
             return redirect()->route('admin.websites')->with([
                 'alert-type' => 'error',
                 'message' => 'something went wrong',
@@ -108,7 +108,7 @@ class WebsiteController extends Controller
                 'alert-type' => 'success',
                 'message' => 'website deleted successfully',
             ]);
-        } catch (\Throwable $th) {
+        } catch (\Exception $ex) {
             return redirect()->route('admin.websites')->with([
                 'alert-type' => 'error',
                 'message' => 'something went wrong',

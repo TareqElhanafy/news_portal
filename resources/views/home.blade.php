@@ -62,7 +62,7 @@
                                     $first_cat_top_post = DB::table('posts')->where('category_id', $first_cat->id)->where('bigthumbnail', 1)->first();
                                      $first_cat_top_posts = DB::table('posts')->where('category_id', $first_cat->id)->where('bigthumbnail', null)->limit(2)->get();
                                 @endphp
-								<div class="cetagory-title"><a href="#">
+								<div class="cetagory-title"><a href="{{ route('category.posts', $first_cat->id) }}">
                                     @if (session()->get('lang')==='english')
                                     {{ $first_cat->name_en }}
                                     @else
@@ -106,7 +106,7 @@
                                 $second_cat_top_post = DB::table('posts')->where('category_id', $second_cat->id)->where('bigthumbnail', 1)->first();
                                 $second_cat_top_posts = DB::table('posts')->where('category_id', $second_cat->id)->where('bigthumbnail', null)->limit(2)->get();
                             @endphp
-								<div class="cetagory-title"><a href="#">
+								<div class="cetagory-title"><a href="{{ route('category.posts', $second_cat->id) }}">
                                     @if (session()->get('lang')==='english')
                                     {{ $second_cat->name_en }}
                                     @else
@@ -196,7 +196,7 @@
                             $third_cat_top_post = DB::table('posts')->where('category_id', $third_cat->id)->where('bigthumbnail', 1)->first();
                             $third_cat_top_posts = DB::table('posts')->where('category_id', $third_cat->id)->where('bigthumbnail', null)->limit(2)->get();
                         @endphp
-                        <div class="cetagory-title"><a href="#">
+                        <div class="cetagory-title"><a href="{{ route('category.posts', $third_cat->id) }}">
                             @if (session()->get('lang')==='english')
                             {{ $third_cat->name_en }}
                             @else
@@ -240,7 +240,7 @@
                             $fourth_cat_top_post = DB::table('posts')->where('category_id', $fourth_cat->id)->where('bigthumbnail', 1)->first();
                             $fourth_cat_top_posts = DB::table('posts')->where('category_id', $fourth_cat->id)->where('bigthumbnail', null)->limit(2)->get();
                         @endphp
-                        <div class="cetagory-title"><a href="#">
+                        <div class="cetagory-title"><a href="{{ route('category.posts', $fourth_cat->id) }}">
                             @if (session()->get('lang')==='english')
                             {{ $fourth_cat->name_en }}
                             @else
@@ -287,7 +287,7 @@
                             $fifth_cat_top_post = DB::table('posts')->where('category_id', $fifth_cat->id)->where('bigthumbnail', 1)->first();
                             $fifth_cat_top_posts = DB::table('posts')->where('category_id', $fifth_cat->id)->where('bigthumbnail', null)->limit(2)->get();
                         @endphp
-                        <div class="cetagory-title"><a href="#">
+                        <div class="cetagory-title"><a href="{{ route('category.posts', $fifth_cat->id) }}">
                             @if (session()->get('lang')==='english')
                             {{ $fifth_cat->name_en }}
                             @else
@@ -331,7 +331,7 @@
                             $sixth_cat_top_post = DB::table('posts')->where('category_id', $sixth_cat->id)->where('bigthumbnail', 1)->first();
                             $sixth_cat_top_posts = DB::table('posts')->where('category_id', $sixth_cat->id)->where('bigthumbnail', null)->limit(2)->get();
                         @endphp
-                        <div class="cetagory-title"><a href="#">
+                        <div class="cetagory-title"><a href="{{ route('category.posts', $sixth_cat->id) }}">
                             @if (session()->get('lang')==='english')
                             {{ $sixth_cat->name_en }}
                             @else
@@ -392,7 +392,7 @@
                     $district_posts = DB::table('posts')->where('district_id', $district->id)->limit(3)->get();
                 @endphp
 				<div class="col-md-9 col-sm-9">
-					<div class="cetagory-title-02"><a href="#">
+					<div class="cetagory-title-02"><a href="">
                         @if (session()->get('lang')==='english')
                         {{ $district->name_en }}
                         @else
@@ -437,7 +437,7 @@
                         $seventh_cat_top_posts = DB::table('posts')->where('category_id', $seventh_cat->id)->where('bigthumbnail', null)->get();
                     @endphp
 						<div class="col-md-12 col-sm-12">
-							<div class="cetagory-title-02"><a href="#">
+							<div class="cetagory-title-02"><a href="{{ route('category.posts', $seventh_cat->id) }}">
                                 @if (session()->get('lang')==='english')
                                 {{ $seventh_cat->name_en }}
                                 @else

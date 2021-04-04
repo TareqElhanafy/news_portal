@@ -48,7 +48,7 @@ class CategoryController extends Controller
             if (!$category) {
                 return redirect()->back()->with([
                     'alertt-type' => 'error',
-                    'message' => "This product doesn't exist"
+                    'message' => "This category doesn't exist"
                 ]);
             }
             return view('admin.category.edit', compact('category'));
@@ -67,7 +67,7 @@ class CategoryController extends Controller
             if (!$category) {
                 return redirect()->back()->with([
                     'alertt-type' => 'error',
-                    'message' => "This product doesn't exist"
+                    'message' => "This category doesn't exist"
                 ]);
             }
             $category->update([
@@ -93,7 +93,7 @@ class CategoryController extends Controller
             if (!$category) {
                 return redirect()->back()->with([
                     'alert-type' => 'error',
-                    'message' => "This product doesn't exist"
+                    'message' => "This category doesn't exist"
                 ]);
             }
             $category->delete();

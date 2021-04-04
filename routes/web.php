@@ -17,12 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('frontPage');
 Route::get('/en', 'HomeController@setEnglish')->name('setEnglish');
 Route::get('/ar', 'HomeController@setArabic')->name('setArabic');
+Route::get('/categories/{id}', 'HomeController@categoryPosts')->name('category.posts');
+Route::get('/subcategories/{id}', 'HomeController@subcategoryPosts')->name('subcategory.posts');
 
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function () {
     Route::get('/', 'DashboardController@index')->name('dashboard');
-
     /**
      *
      * Categories Routes

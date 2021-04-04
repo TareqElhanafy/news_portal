@@ -51,32 +51,31 @@
                                 @endphp
 								<!-- Collection of nav links and other content for toggling -->
 								<div id="navbarCollapse" class="collapse navbar-collapse">
-									<ul class="nav navbar-nav">
+                                    <ul class="nav navbar-nav">
                                         @foreach ($categories as $category)
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                @if (session()->get('lang') === 'english')
-                                                {{$category->name_en}}
+										<li class="dropdown">
+											<a href="{{ route('category.posts', $category->id) }}" class="dropdown-toggle" data-toggle="dropdown">
+                                                @if (session()->get('lang')==='english')
+                                                {{ $category->name_en }}
                                                 @else
-                                                {{$category->name_ar}}
-                                                 <b class="caret"></b></a>
-                                                 @endif
-                                           @if ($category->subcategories()->count() > 0)
-                                         <ul class="dropdown-menu">
-                                            @foreach ($category->subcategories as $subcategory)
-                                            <li><a href="#">
-                                                @if (session()->get('lang') === 'english')
-                                                {{ $subcategory->name_en }}
-                                                @else
-                                                {{ $subcategory->name_ar }}
+                                                {{ $category->name_ar }}
                                                 @endif
-                                            </a></li>
+                                                <b class="caret"></b></a>
+                                            @if ($category->subcategories()->count() > 0)
+                                            @foreach ($category->subcategories as $subcategory)
+											<ul class="dropdown-menu">
+												<li><a href="{{ route('subcategory.posts', $subcategory->id) }}">
+                                                    @if (session()->get('lang')==='english')
+                                                    {{ $subcategory->name_en }}
+                                                    @else
+                                                    {{ $subcategory->name_ar }}
+                                                    @endif
+                                                </a></li>
+											</ul>
                                             @endforeach
-                                        </ul>
-                                        @endif
-                                        </li>
+                                            @endif
+										</li>
                                         @endforeach
-                                    </ul>
 								</div>
 							</nav>
 						</div>
