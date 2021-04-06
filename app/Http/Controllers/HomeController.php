@@ -85,11 +85,11 @@ class HomeController extends Controller
                     'message' => "This sub district doesn't exist"
                 ]);
             }
-            $posts = Post::where(['district_id' => $district_id, 'subdistrict_id' => $subdistrict_id])->orderBy('id', 'desc')->paginate(5);
+            $posts = Post::where(['district_id' => $district_id, 'subdistrict_id' => $subdistrict_id])->orderBy('views', 'desc')->paginate(5);
         } elseif ($request->query('page')) {
             $page = $request->query('page');
-            $skip = $page * 5;
-            $posts = Post::orderBy('id', 'desc')->skip($skip)->paginate(5);
+            $skip = ($page * 5) - 5;
+            $posts = Post::orderBy('views', 'desc')->skip($skip)->paginate(5);
         }
 
         return view('searchposts', compact('posts'));
