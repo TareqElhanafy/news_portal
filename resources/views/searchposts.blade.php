@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="single_info">
-					<span>
+					{{-- <span>
 						<a href="{{ route('frontPage') }}"><i class="fa fa-home" aria-hidden="true"></i> /
 						</a>
                          @if (session()->get('lang')==='english')
@@ -22,7 +22,7 @@
                         @else
                         {{ $subdistrict->name_ar }}
                         @endif
-                    </span>
+                    </span> --}}
 				</div>
 			</div>
 			<div class="col-md-9 col-sm-8">
@@ -49,7 +49,7 @@
                                     @if (session()->get('lang')==='english')
                                     {!! str_limit($post->details_en, 200) !!}
                                     @else
-                                    {{ str_limit($post->details_ar, 200) }}
+                                    {!! str_limit($post->details_ar, 200) !!}
                                     @endif
 								</div>
 								<div class="dtails_btn"><a href="{{ route('singlePost', $post->id) }}">Read More...</a>
@@ -59,9 +59,7 @@
 					</div>
                     @endforeach
 				</div>
-                <div class="row">
-                    {{ $posts->links() }}
-				</div>
+                    {{ $posts->render() }}
 			</div>
 			<div class="col-md-3 col-sm-4">
 				<!-- add-start -->

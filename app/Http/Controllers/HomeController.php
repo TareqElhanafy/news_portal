@@ -49,7 +49,7 @@ class HomeController extends Controller
                 'message' => "This category doesn't exist"
             ]);
         }
-        $posts = Post::where('category_id', $id)->orderBy('views', 'desc')->paginate(4);
+        $posts = Post::where('category_id', $id)->orderBy('views', 'desc')->paginate(1);
         return view('categoryposts', compact('posts', 'category'));
     }
     public function subcategoryPosts($id)
@@ -67,23 +67,31 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-        $district_id = $request->district_id;
-        $subdistrict_id = $request->subdistrict_id;
-        $district = District::find($district_id);
-        if (!$district) {
-            return redirect()->back()->with([
-                'alert-type' => 'error',
-                'message' => "This district doesn't exist"
-            ]);
+        $posts = [];
+        if ($request->has(['district_id', 'subdistrict_id'])) {
+            $district_id = $request->district_id;
+            $subdistrict_id = $request->subdistrict_id;
+            $district = District::find($district_id);
+            if (!$district) {
+                return redirect()->back()->with([
+                    'alert-type' => 'error',
+                    'message' => "This district doesn't exist"
+                ]);
+            }
+            $subdistrict = SubDistrict::find($subdistrict_id);
+            if (!$subdistrict) {
+                return redirect()->back()->with([
+                    'alert-type' => 'error',
+                    'message' => "This sub district doesn't exist"
+                ]);
+            }
+            $posts = Post::where(['district_id' => $district_id, 'subdistrict_id' => $subdistrict_id])->orderBy('id', 'desc')->paginate(5);
+        } elseif ($request->query('page')) {
+            $page = $request->query('page');
+            $skip = $page * 5;
+            $posts = Post::orderBy('id', 'desc')->skip($skip)->paginate(5);
         }
-        $subdistrict = SubDistrict::find($subdistrict_id);
-        if (!$subdistrict) {
-            return redirect()->back()->with([
-                'alert-type' => 'error',
-                'message' => "This sub district doesn't exist"
-            ]);
-        }
-        $posts = Post::where(['district_id' => $district_id, 'subdistrict_id' => $subdistrict_id])->orderBy('views', 'desc')->paginate(4);
-        return view('searchposts', compact('posts', 'district', 'subdistrict'));
+
+        return view('searchposts', compact('posts'));
     }
 }
