@@ -18,10 +18,10 @@
                     <div class="form-group">
                         <label for="exampleInputName1">Choose Type</label>
                           <select name="type" class="form-control" id="exampleFormControlSelect2">
-                              <option value="1" @if ($ad->type===1)
+                              <option value="1" @if ($ad->type==1)
                                   selected
                               @endif>Horizontal Ad</option>
-                              <option value="2" @if ($ad->type===2)
+                              <option value="2" @if ($ad->type==2)
                                   selected
                               @endif>Vertical Ad</option>
                           </select>

@@ -45,13 +45,18 @@
 								</div>
                                 @endforeach
 							</div>
-
-					<!-- add-start -->
-					<div class="row">
-						<div class="col-md-12 col-sm-12">
-							<div class="add"><img src="assets/img/top-ad.jpg" alt="" /></div>
-						</div>
-					</div><!-- /.add-close -->
+@php
+    $firstMidHorizontalAd = DB::table('ads')->where('type', 1)->skip(1)->first();
+@endphp
+@if ($firstMidHorizontalAd)
+    					<!-- add-start -->
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="add"><a href="http://{{ $firstMidHorizontalAd->link }}"><img src="{{ asset('storage/'.$firstMidHorizontalAd->image) }}" alt="" /></a></div>
+                            </div>
+                        </div><!-- /.add-close -->
+@else
+@endif
 
 					<!-- news-start -->
 					<div class="row">
@@ -146,12 +151,20 @@
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-3">
+                    @php
+                        $firstVerticalAd = DB::table('ads')->where('type', 2)->first();
+                        $secondVerticalAd = DB::table('ads')->where('type', 2)->skip(1)->first();
+
+                    @endphp
+                    @if ($firstVerticalAd)
 					<!-- add-start -->
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-							<div class="sidebar-add"><img src="assets/img/add_01.jpg" alt="" /></div>
+							<div class="sidebar-add"><a href="http://{{ $firstVerticalAd->link }}"><img src="{{ asset('storage/'.$firstVerticalAd->image) }}" alt="" /></a></div>
 						</div>
 					</div><!-- /.add-close -->
+                    @else
+                    @endif
 @php
     $livetv = DB::table('livetvs')->first();
 
@@ -173,13 +186,17 @@
 						facebook page here
 					</div><!-- /.facebook-page-close -->
 					<!-- add-start -->
-					<div class="row">
+                    @if ($secondVerticalAd)
+                    <div class="row">
 						<div class="col-md-12 col-sm-12">
 							<div class="sidebar-add">
-								<img src="assets/img/add_01.jpg" alt="" />
+								<a href="http://{{ $secondVerticalAd->link }}"><img src="{{ asset('storage/'.$secondVerticalAd->image) }}" alt="" /></a>
 							</div>
 						</div>
 					</div><!-- /.add-close -->
+                    @else
+                    @endif
+
 				</div>
 			</div>
 		</div>
@@ -370,13 +387,25 @@
 				</div>
 			</div>
 			<!-- add-start -->
+            @php
+            $thirdMidHorizontalAd = DB::table('ads')->where('type', 1)->skip(2)->first();
+            $fourthMidHorizontalAd = DB::table('ads')->where('type', 1)->skip(3)->first();
+        @endphp
 			<div class="row">
+                @if ($thirdMidHorizontalAd)
 				<div class="col-md-6 col-sm-6">
-					<div class="add"><img src="assets/img/top-ad.jpg" alt="" /></div>
+					<div class="add"><a href="http://{{ $thirdMidHorizontalAd->link  }}"><img src="{{ asset('storage/'.$thirdMidHorizontalAd->image) }}" alt="" /></a></div>
 				</div>
-				<div class="col-md-6 col-sm-6">
-					<div class="add"><img src="assets/img/top-ad.jpg" alt="" /></div>
-				</div>
+                @else
+
+                @endif
+             @if ($fourthMidHorizontalAd)
+                <div class="col-md-6 col-sm-6">
+                 <div class="add"><a href="http://{{ $fourthMidHorizontalAd->link }}"><img src="{{ asset('storage/'.$fourthMidHorizontalAd->image) }}" alt="" /></a></div>
+                  </div>
+               @else
+
+               @endif
 			</div><!-- /.add-close -->
 
 		</div>
@@ -468,15 +497,19 @@
 						</div>
 					</div>
 
+                    @php
+                   $bottomHorizontalAd = DB::table('ads')->where('type', 1)->skip(4)->first();
+                    @endphp
+                    @if ($bottomHorizontalAd)
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
 							<div class="sidebar-add">
-								<img src="assets/img/top-ad.jpg" alt="" />
+								<img src="{{ asset('storage/'.$bottomHorizontalAd->image) }}" alt="" />
 							</div>
 						</div>
 					</div><!-- /.add-close -->
-
-
+                    @else
+                    @endif
 				</div>
 				<div class="col-md-3 col-sm-3">
 					<div class="tab-header">

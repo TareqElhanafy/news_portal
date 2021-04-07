@@ -143,17 +143,24 @@
 			</div>
 		</div>
 	</section><!-- /.header-close -->
-
+ @php
+    $topHorizontalAd = DB::table('ads')->where('type', 1)->first();
+@endphp
     <!-- top-add-start -->
+    @if ($topHorizontalAd)
 	<section>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-					<div class="top-add"><img src="{{ asset('front/assets/img/top-ad.jpg') }}" alt="" /></div>
+					<div class="top-add"><a href="http://{{ $topHorizontalAd->link }}"><img src="{{ asset('storage/'.$topHorizontalAd->image) }}" alt="" /></a></div>
 				</div>
 			</div>
 		</div>
 	</section> <!-- /.top-add-close -->
+    @else
+
+    @endif
+
 
 	<!-- date-start -->
     <section>

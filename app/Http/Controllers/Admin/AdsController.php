@@ -92,7 +92,7 @@ class AdsController extends Controller
             } else {
                 $image = $ad->image;
             }
-            DB::table('ads')->update([
+            DB::table('ads')->where('id', $id)->update([
                 'link' => $request->link,
                 'image' => $image,
                 'type' => $request->type,
