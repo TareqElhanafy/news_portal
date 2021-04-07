@@ -19,6 +19,7 @@ Route::get('/en', 'HomeController@setEnglish')->name('setEnglish');
 Route::get('/ar', 'HomeController@setArabic')->name('setArabic');
 Route::get('/categories/{id}', 'HomeController@categoryPosts')->name('category.posts');
 Route::get('/subcategories/{id}', 'HomeController@subcategoryPosts')->name('subcategory.posts');
+Route::get('posts/{id}/post', 'PostController@singlePost')->name('singlePost');
 Route::get('/search/get/subdistricts/{id}', 'Admin\DistrictController@getSubdistricts')->name('subdistricts.search');
 Route::get('/search/district', 'HomeController@search')->name('search.district.posts');
 
@@ -92,7 +93,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::get('/edit/{id}', 'PostController@edit')->name('admin.posts.edit');
         Route::post('/update/{id}', 'PostController@update')->name('admin.posts.update');
         Route::get('/delete/{id}', 'PostController@destroy')->name('admin.posts.delete');
-        Route::get('/{id}/post', 'PostController@singlePost')->name('singlePost');
     });
 
     /**
@@ -149,5 +149,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
             Route::post('/update/{id}', 'VideoController@update')->name('admin.videos.update');
             Route::get('/delete/{id}', 'VideoController@destroy')->name('admin.videos.delete');
         });
+    });
+
+    /**
+     *
+     * Ads Routes
+     */
+    Route::group(['prefix'=>'ads'], function(){
+        Route::get('/', 'AdsController@index')->name('admin.ads');
+        Route::get('/create', 'AdsController@create')->name('admin.ads.create');
+
     });
 });
