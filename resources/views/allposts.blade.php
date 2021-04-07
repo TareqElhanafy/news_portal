@@ -10,9 +10,9 @@
 						<a href="{{ route('frontPage') }}"><i class="fa fa-home" aria-hidden="true"></i> /
 						</a>
                          @if (session()->get('lang')==='english')
-                        {{ $subcategory->name_en }}
+                        {{ $category->name_en }}
                         @else
-                        {{ $subcategory->name_ar }}
+                        {{ $category->name_ar }}
                         @endif
 					</span>
 				</div>
@@ -41,7 +41,7 @@
                                     @if (session()->get('lang')==='english')
                                     {!! str_limit($post->details_en, 200) !!}
                                     @else
-                                    {{ str_limit($post->details_ar, 200) }}
+                                    {!! str_limit($post->details_ar, 200) !!}
                                     @endif
 								</div>
 								<div class="dtails_btn"><a href="{{ route('singlePost', $post->id) }}">Read More...</a>
@@ -56,12 +56,20 @@
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-4">
-				<!-- add-start -->
-					<div class="row">
-						<div class="col-md-12 col-sm-12">
-							<div class="sidebar-add"><img src="{{ asset('front/assets/img/add_01.jpg') }}" alt="" /></div>
-						</div>
-					</div><!-- /.add-close -->
+                @php
+                $firstVerticalAd = DB::table('ads')->where('type', 2)->first();
+                $secondVerticalAd = DB::table('ads')->where('type', 2)->skip(1)->first();
+
+            @endphp
+            @if ($firstVerticalAd)
+            <!-- add-start -->
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="sidebar-add"><a href="http://{{ $firstVerticalAd->link }}"><img src="{{ asset('storage/'.$firstVerticalAd->image) }}" alt="" /></a></div>
+                </div>
+            </div><!-- /.add-close -->
+            @else
+            @endif
                     <div class="tab-header">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs nav-justified" role="tablist">
@@ -108,12 +116,17 @@
                             </div>
                         </div>
                     </div>
-				<!-- add-start -->
-					<div class="row">
+					<!-- add-start -->
+                    @if ($secondVerticalAd)
+                    <div class="row">
 						<div class="col-md-12 col-sm-12">
-							<div class="sidebar-add"><img src="{{ asset('front/assets/img/add_01.jpg') }}" alt="" /></div>
+							<div class="sidebar-add">
+								<a href="http://{{ $secondVerticalAd->link }}"><img src="{{ asset('storage/'.$secondVerticalAd->image) }}" alt="" /></a>
+							</div>
 						</div>
 					</div><!-- /.add-close -->
+                    @else
+                    @endif
 			</div>
 		</div>
 	</div>

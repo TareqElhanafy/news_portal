@@ -50,19 +50,19 @@ class HomeController extends Controller
             ]);
         }
         $posts = Post::where('category_id', $id)->orderBy('views', 'desc')->paginate(1);
-        return view('categoryposts', compact('posts', 'category'));
+        return view('allposts', compact('posts', 'category'));
     }
     public function subcategoryPosts($id)
     {
-        $subcategory = SubCategory::find($id);
-        if (!$subcategory) {
+        $category = SubCategory::find($id);
+        if (!$category) {
             return redirect()->back()->with([
                 'alert-type' => 'error',
                 'message' => "This subcategory doesn't exist"
             ]);
         }
         $posts = Post::where('subcategory_id', $id)->orderBy('views', 'desc')->paginate(4);
-        return view('subcategoryposts', compact('posts', 'subcategory'));
+        return view('allposts', compact('posts', 'category'));
     }
 
     public function search(Request $request)
