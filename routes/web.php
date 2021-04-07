@@ -155,9 +155,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
      *
      * Ads Routes
      */
-    Route::group(['prefix'=>'ads'], function(){
+    Route::group(['prefix' => 'ads'], function () {
         Route::get('/', 'AdsController@index')->name('admin.ads');
         Route::get('/create', 'AdsController@create')->name('admin.ads.create');
-
+        Route::post('/store', 'AdsController@store')->name('admin.ads.store');
+        Route::get('/edit/{id}', 'AdsController@edit')->name('admin.ads.edit');
+        Route::post('/update/{id}', 'AdsController@update')->name('admin.ads.update');
+        Route::get('/delete/{id}', 'AdsController@destroy')->name('admin.ads.delete');
     });
 });
