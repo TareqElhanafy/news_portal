@@ -182,9 +182,10 @@
 
 					<!-- facebook-page-start -->
 					<div class="cetagory-title-03">Facebook </div>
-					<div class="fb-root">
-						facebook page here
-					</div><!-- /.facebook-page-close -->
+                    <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0" nonce="Wg5SDlQn"></script>
+            <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="" data-width="320" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
+            <!-- /.facebook-page-close -->
 					<!-- add-start -->
                     @if ($secondVerticalAd)
                     <div class="row">
