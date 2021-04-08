@@ -23,7 +23,7 @@
 					<div class="row">
 						<div class="col-md-4 col-sm-5">
 							<div class="archive_img_again">
-								<a href="#"><img src="{{ asset('storage/'.$post->image) }}" alt="Notebook"></a>
+								<a href="{{ route('singlePost', $post->id) }}"><img src="{{ asset('storage/'.$post->image) }}" alt="Notebook"></a>
 							</div>
 						</div>
 						<div class="col-md-8 col-sm-7">

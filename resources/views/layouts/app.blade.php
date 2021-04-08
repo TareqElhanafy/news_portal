@@ -241,12 +241,11 @@
 					<div class="col-md-6 col-sm-4">
 						 <div class="social">
                             <ul>
-                                <li><a href="" target="_blank" class="facebook"> <i class="fa fa-facebook"></i></a></li>
-                                <li><a href="" target="_blank" class="twitter"> <i class="fa fa-twitter"></i></a></li>
-                                <li><a href="" target="_blank" class="instagram"> <i class="fa fa-instagram"></i></a></li>
-                                <li><a href="" target="_blank" class="android"> <i class="fa fa-android"></i></a></li>
-                                <li><a href="" target="_blank" class="linkedin"> <i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="" target="_blank" class="youtube"> <i class="fa fa-youtube"></i></a></li>
+                                <li><a href="http://{{ $social->facebook }}" target="_blank" class="facebook"> <i class="fa fa-facebook"></i></a></li>
+                                <li><a href="http://{{ $social->twitter }}" target="_blank" class="twitter"> <i class="fa fa-twitter"></i></a></li>
+                                <li><a href="http://{{ $social->instagram }}" target="_blank" class="instagram"> <i class="fa fa-instagram"></i></a></li>
+                                <li><a href="http://{{ $social->linkedin }}" target="_blank" class="linkedin"> <i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="http://{{ $social->youtube }}" target="_blank" class="youtube"> <i class="fa fa-youtube"></i></a></li>
                             </ul>
                         </div>
 					</div>
@@ -358,6 +357,7 @@
                           });
                     });
                 </script>
+                @yield('scripts')
 	</body>
 </html>
 
