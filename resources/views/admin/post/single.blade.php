@@ -78,6 +78,7 @@
                         @endif
                     </p>
 				</div>
+                <div class="fb-comments" data-href="{{ Request::url() }}" data-width="" data-numposts="5"></div>
 				<!-- ********* -->
 
                 @php
@@ -200,4 +201,6 @@
 @section('scripts')
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-604a2d0713d96432"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0" nonce="njiJJLMx"></script>
 @endsection
