@@ -31,7 +31,7 @@
 					<div class="row">
 						<div class="col-md-4 col-sm-5">
 							<div class="archive_img_again">
-								<a href="#"><img src="{{ asset('storage/'.$post->image) }}" alt="Notebook"></a>
+								<a href="{{ route('singlePost', $post->id) }}"><img src="{{ asset('storage/'.$post->image) }}" alt="Notebook"></a>
 							</div>
 						</div>
 						<div class="col-md-8 col-sm-7">
@@ -61,13 +61,21 @@
 				</div>
                     {{ $posts->render() }}
 			</div>
+            @php
+            $firstVerticalAd = DB::table('ads')->where('type', 2)->first();
+            $secondVerticalAd = DB::table('ads')->where('type', 2)->skip(1)->first();
+
+        @endphp
 			<div class="col-md-3 col-sm-4">
-				<!-- add-start -->
-					<div class="row">
-						<div class="col-md-12 col-sm-12">
-							<div class="sidebar-add"><img src="{{ asset('front/assets/img/add_01.jpg') }}" alt="" /></div>
-						</div>
-					</div><!-- /.add-close -->
+                @if ($firstVerticalAd)
+                <!-- add-start -->
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="sidebar-add"><a href="http://{{ $firstVerticalAd->link }}"><img src="{{ asset('storage/'.$firstVerticalAd->image) }}" alt="" /></a></div>
+                    </div>
+                </div><!-- /.add-close -->
+                @else
+                @endif
                     <div class="tab-header">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs nav-justified" role="tablist">
@@ -114,12 +122,17 @@
                             </div>
                         </div>
                     </div>
-				<!-- add-start -->
-					<div class="row">
-						<div class="col-md-12 col-sm-12">
-							<div class="sidebar-add"><img src="{{ asset('front/assets/img/add_01.jpg') }}" alt="" /></div>
-						</div>
-					</div><!-- /.add-close -->
+<!-- add-start -->
+@if ($secondVerticalAd)
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div class="sidebar-add">
+            <a href="http://{{ $secondVerticalAd->link }}"><img src="{{ asset('storage/'.$secondVerticalAd->image) }}" alt="" /></a>
+        </div>
+    </div>
+</div><!-- /.add-close -->
+@else
+@endif
 			</div>
 		</div>
 	</div>

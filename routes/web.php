@@ -19,7 +19,7 @@ Route::get('/en', 'HomeController@setEnglish')->name('setEnglish');
 Route::get('/ar', 'HomeController@setArabic')->name('setArabic');
 Route::get('/categories/{id}', 'HomeController@categoryPosts')->name('category.posts');
 Route::get('/subcategories/{id}', 'HomeController@subcategoryPosts')->name('subcategory.posts');
-Route::get('posts/{id}/post', 'PostController@singlePost')->name('singlePost');
+Route::get('posts/{id}/post', 'Admin\PostController@singlePost')->name('singlePost');
 Route::get('/search/get/subdistricts/{id}', 'Admin\DistrictController@getSubdistricts')->name('subdistricts.search');
 Route::get('/search/district', 'HomeController@search')->name('search.district.posts');
 
