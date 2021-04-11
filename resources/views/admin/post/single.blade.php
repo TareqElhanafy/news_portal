@@ -44,7 +44,7 @@
 						 <ul class="list-inline">
 
 
-						 <li> Published AT </li><li><i class="fa fa-clock-o"></i> {{Carbon\Carbon::parse($post->updated_at)->diffForHumans() }}</li>
+						 <li> Published AT </li><li><i class="fa fa-clock-o"></i> {{Carbon\Carbon::parse($post->created_at)->diffForHumans() }}</li>
 						 </ul>
 
 						</div>

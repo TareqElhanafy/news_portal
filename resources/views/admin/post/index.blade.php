@@ -32,7 +32,7 @@
                     <td>
                         <img src="{{ asset('storage/'.$post->image) }}" style="height: 100px; width:100px;" alt="">
                     </td>
-                    <td> {{Carbon\Carbon::parse($post->updated_at)->diffForHumans() }} </td>
+                    <td> {{Carbon\Carbon::parse($post->created_at)->diffForHumans() }} </td>
 
                     <td>
                         <a href="{{ route('admin.posts.edit',$post->id) }}" class="btn btn-warning btn-fw">Edit</a>

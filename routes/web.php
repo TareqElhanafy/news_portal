@@ -22,7 +22,7 @@ Route::get('/subcategories/{id}', 'HomeController@subcategoryPosts')->name('subc
 Route::get('posts/{id}/post', 'Admin\PostController@singlePost')->name('singlePost');
 Route::get('/search/get/subdistricts/{id}', 'Admin\DistrictController@getSubdistricts')->name('subdistricts.search');
 Route::get('/search/district', 'HomeController@search')->name('search.district.posts');
-
+Route::get('/search-by-date', 'HomeController@searchByDate')->name('search.By.Date');
 
 Auth::routes();
 

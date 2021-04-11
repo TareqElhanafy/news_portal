@@ -59,7 +59,11 @@
 					</div>
                     @endforeach
 				</div>
-                    {{ $posts->render() }}
+                <form action="">
+                    <input type="text" name="test" id="">
+                    {{ $posts->appends(request()->input())->render() }}
+                </form>
+
 			</div>
             @php
             $firstVerticalAd = DB::table('ads')->where('type', 2)->first();

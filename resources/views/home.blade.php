@@ -590,13 +590,13 @@
                     </div>
 					<!-- Namaj Times -->
 					<div class="cetagory-title-03">Old News  </div>
-					<form action="" method="post">
+					<form action="{{ route('search.By.Date') }}" method="get">
 						<div class="old-news-date">
-						   <input type="text" name="from" placeholder="From Date" required="">
-						   <input type="text" name="" placeholder="To Date">
+						   <input type="date" name="start_date" placeholder="From Date" required="">
+						   <input type="date" name="end_date" placeholder="To Date">
 						</div>
 						<div class="old-date-button">
-							<input type="submit" value="search ">
+							<input type="submit" value="search">
 						</div>
 				   </form>
                    @php

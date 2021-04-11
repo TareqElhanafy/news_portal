@@ -8,6 +8,7 @@ use App\Post;
 use App\SubCategory;
 use App\SubDistrict;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -67,8 +68,6 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-        $posts = [];
-        if ($request->has(['district_id', 'subdistrict_id'])) {
             $district_id = $request->district_id;
             $subdistrict_id = $request->subdistrict_id;
             $district = District::find($district_id);
@@ -86,11 +85,15 @@ class HomeController extends Controller
                 ]);
             }
             $posts = Post::where(['district_id' => $district_id, 'subdistrict_id' => $subdistrict_id])->orderBy('views', 'desc')->paginate(5);
-        } elseif ($request->query('page')) {
-            $page = $request->query('page');
-            $skip = ($page * 5) - 5;
-            $posts = Post::orderBy('views', 'desc')->skip($skip)->paginate(5);
-        }
+
+
+        return view('searchposts', compact('posts'));
+    }
+    public function searchByDate(Request $request)
+    {
+            $first_date = $request->start_date;
+            $end_date = $request->end_date;
+            $posts = DB::table('posts')->where('date', '>=', $first_date)->where('date', '<=', $end_date)->orderBy('views', 'desc')->paginate(5);
 
         return view('searchposts', compact('posts'));
     }
