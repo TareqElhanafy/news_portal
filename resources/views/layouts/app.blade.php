@@ -3,6 +3,7 @@
     <head>
         @php
             $seo = DB::table('seos')->first();
+            $settings=DB::table('website_settings')->first();
         @endphp
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,7 +32,7 @@
 			<div class="row">
 				<div class="col-xs-6 col-md-2 col-sm-4">
 					<div class="header_logo">
-						<a href="{{ route('frontPage') }}"><img src="{{ asset('front/assets/img/demo_logo.png') }}"></a>
+						<a href="{{ route('frontPage') }}"><img src="{{ asset('storage/'.$settings->logo) }}"></a>
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-8 col-sm-8">
@@ -235,7 +236,7 @@
 				<div class="row">
 					<div class="col-md-3 col-sm-4">
 						<div class="foot-logo">
-							<img src="{{ asset('front/assets/img/demofooter.png') }}" style="height: 50px;" />
+							<img src="{{ asset('storage/'.$settings->logo) }}" style="height: 50px;" />
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-4">
@@ -268,17 +269,39 @@
 			<div class="row">
 				<div class="col-md-4 col-sm-4">
 					<div class="editor-one">
-						Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is
+                        @if (session()->get('lang')==='english')
+                        <label for="Address">Address :</label>
+                             {!! $settings->address_en !!}
+                             @else
+                             <label for="Address">: العنوان</label>
+                             {!! $settings->address_ar !!}
+                        @endif
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-4">
 					<div class="editor-two">
-					Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is
+                        @if (session()->get('lang')==='english')
+                        <label for="Address">Phone :</label>
+                        <br>
+                             {{  $settings->phone  }}
+                             @else
+                             <label for="Address">: الهاتف</label>
+                             <br>
+                             {{  $settings->phone  }}
+                        @endif
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-4">
 					<div class="editor-three">
-						Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is
+                        @if (session()->get('lang')==='english')
+                        <label for="Address">Email :</label>
+                        <br>
+                             {{  $settings->email  }}
+                             @else
+                             <label for="Address">: البريد الإلكتروني</label>
+                             <br>
+                             {{  $settings->email  }}
+                        @endif
 					</div>
 				</div>
 			</div>
@@ -292,14 +315,6 @@
 				<div class="col-md-6 col-sm-6">
 					<div class="copyright">
 						All rights reserved © 2020
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-6">
-					<div class="btm-foot-menu">
-						<ul>
-							<li><a href="#">About US</a></li>
-							<li><a href="#">Contact US</a></li>
-						</ul>
 					</div>
 				</div>
 			</div>

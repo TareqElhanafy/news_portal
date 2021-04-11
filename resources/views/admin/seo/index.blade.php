@@ -61,7 +61,7 @@
             @enderror
           </div>
           <button type="submit" class="btn btn-primary mr-2">Update</button>
-          <a href="{{ route('admin.settings.seo') }}" class="btn btn-dark">Cancel</a>
+          <a href="{{ route('dashboard') }}" class="btn btn-dark">Cancel</a>
         </form>
       </div>
     </div>

@@ -112,6 +112,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::get('/notice', 'NoticeController@index')->name('admin.settings.notice');
         Route::post('/notice/update/{id}', 'NoticeController@update')->name('admin.settings.notice.update');
         Route::get('/notice/change-status', 'NoticeController@changeStatus')->name('admin.settings.notice.status');
+        Route::get('/website-general-settings', 'WebsitesettingsController@index')->name('admin.settings.general');
+        Route::post('/website/update/{id}/general-settings', 'WebsitesettingsController@update')->name('admin.settings.general.update');
     });
 
     /**

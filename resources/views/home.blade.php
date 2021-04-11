@@ -608,7 +608,7 @@
 				   <div class="">
                        @foreach ($websites as $website)
 				   	<div class="news-title-02">
-				   		<h4 class="heading-03"><a href="{{ $website->link }}"><i class="fa fa-check" aria-hidden="true"></i> {{ $website->name }} </a> </h4>
+				   		<h4 class="heading-03"><a href="http://{{ $website->link }}"><i class="fa fa-check" aria-hidden="true"></i> {{ $website->name }} </a> </h4>
 				   	</div>
                        @endforeach
 				   </div>
