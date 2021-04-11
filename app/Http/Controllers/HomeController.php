@@ -68,32 +68,32 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-            $district_id = $request->district_id;
-            $subdistrict_id = $request->subdistrict_id;
-            $district = District::find($district_id);
-            if (!$district) {
-                return redirect()->back()->with([
-                    'alert-type' => 'error',
-                    'message' => "This district doesn't exist"
-                ]);
-            }
-            $subdistrict = SubDistrict::find($subdistrict_id);
-            if (!$subdistrict) {
-                return redirect()->back()->with([
-                    'alert-type' => 'error',
-                    'message' => "This sub district doesn't exist"
-                ]);
-            }
-            $posts = Post::where(['district_id' => $district_id, 'subdistrict_id' => $subdistrict_id])->orderBy('views', 'desc')->paginate(5);
+        $district_id = $request->district_id;
+        $subdistrict_id = $request->subdistrict_id;
+        $district = District::find($district_id);
+        if (!$district) {
+            return redirect()->back()->with([
+                'alert-type' => 'error',
+                'message' => "This district doesn't exist"
+            ]);
+        }
+        $subdistrict = SubDistrict::find($subdistrict_id);
+        if (!$subdistrict) {
+            return redirect()->back()->with([
+                'alert-type' => 'error',
+                'message' => "This sub district doesn't exist"
+            ]);
+        }
+        $posts = Post::where(['district_id' => $district_id, 'subdistrict_id' => $subdistrict_id])->orderBy('views', 'desc')->paginate(5);
 
 
         return view('searchposts', compact('posts'));
     }
     public function searchByDate(Request $request)
     {
-            $first_date = $request->start_date;
-            $end_date = $request->end_date;
-            $posts = DB::table('posts')->where('date', '>=', $first_date)->where('date', '<=', $end_date)->orderBy('views', 'desc')->paginate(5);
+        $first_date = $request->start_date;
+        $end_date = $request->end_date;
+        $posts = DB::table('posts')->where('date', '>=', $first_date)->where('date', '<=', $end_date)->orderBy('views', 'desc')->paginate(5);
 
         return view('searchposts', compact('posts'));
     }

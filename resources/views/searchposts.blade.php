@@ -60,7 +60,6 @@
                     @endforeach
 				</div>
                 <form action="">
-                    <input type="text" name="test" id="">
                     {{ $posts->appends(request()->input())->render() }}
                 </form>
 
