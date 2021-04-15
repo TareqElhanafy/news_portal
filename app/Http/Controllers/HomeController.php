@@ -94,7 +94,6 @@ class HomeController extends Controller
         $first_date = $request->start_date;
         $end_date = $request->end_date;
         $posts = DB::table('posts')->where('date', '>=', $first_date)->where('date', '<=', $end_date)->orderBy('views', 'desc')->paginate(5);
-
         return view('searchposts', compact('posts'));
     }
 }

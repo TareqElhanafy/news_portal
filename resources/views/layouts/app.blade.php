@@ -32,7 +32,7 @@
 			<div class="row">
 				<div class="col-xs-6 col-md-2 col-sm-4">
 					<div class="header_logo">
-						<a href="{{ route('frontPage') }}"><img src="{{ asset('storage/'.$settings->logo) }}"></a>
+						<a href="{{ route('frontPage') }}"><img src="{{ asset('front/assets/img/demofooter.png') }}"></a>
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-8 col-sm-8">
@@ -170,9 +170,8 @@
     			<div class="col-md-12 col-sm-12">
 					<div class="date">
 						<ul>
-							<li><i class="fa fa-map-marker" aria-hidden="true"></i>  Dhaka </li>
-							<li><i class="fa fa-calendar" aria-hidden="true"></i>  Monday, 19th October 2020 </li>
-							<li><i class="fa fa-clock-o" aria-hidden="true"></i> Update 5 min ago </li>
+							<li><i class="fa fa-map-marker" aria-hidden="true"></i>  Egypt </li>
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>  {{ Carbon\Carbon::now()->toDateString() }} </li>
 						</ul>
 
 					</div>
